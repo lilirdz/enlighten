@@ -31,6 +31,19 @@ class CategoriesController < ApplicationController
         render json: category_created
     end
 
+    def update
+        category_to_update = Category.find(params[:id])
+        if category_to_update.user_id == @user.id 
+            category_to_update.update(
+              name: params[:name],
+              user_id: @user.id
+            )
+            render json: category_to_update
+        else 
+            render json: {"error": "You must have created the category to edit it"} 
+        end
+    end
+
     def destroy 
         category_to_delete = Category.find(params[:id])
         if category_to_delete.user_id == @user.id
