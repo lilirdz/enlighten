@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :comments
-      resources :school_years
+      resources :school_years, only: [:index,:show]
       resources :articles, only: [:index,:show]
       resources :prospective_schools
       resources :schools, only: [:index,:show]
