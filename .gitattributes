@@ -1,3 +1,1 @@
-. filter=lfs diff=lfs merge=lfs -text
-backend/log/development filter=lfs diff=lfs merge=lfs -text
 backend/log/development.log filter=lfs diff=lfs merge=lfs -text
