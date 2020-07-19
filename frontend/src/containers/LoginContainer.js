@@ -1,9 +1,11 @@
 import React from "react";
 import "../App.css";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export default class LoginContainer extends React.Component {
   state = {
-    form: "Login",
+    form: "Log In",
     name: "",
     username: "",
     password: "",
@@ -65,7 +67,7 @@ export default class LoginContainer extends React.Component {
   };
 
   switchForm = () => {
-    const newState = this.state.form === "Login" ? "Sign Up" : "Login";
+    const newState = this.state.form === "Log In" ? "Sign Up" : "Log In";
     this.setState({
       form: newState,
       error: false,
@@ -73,6 +75,97 @@ export default class LoginContainer extends React.Component {
   };
 
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <Form>
+          <h3>{this.state.form}</h3>
+          {this.state.form === "Sign Up" ? (
+            <>
+              <Form.Group controlId="formBasicName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  onChange={this.handleInput}
+                  type="Name"
+                  name="Name"
+                  placeholder="Enter Name"
+                />
+              </Form.Group>
+
+              <Form.Group controlId="formBasicUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  onChange={this.handleInput}
+                  type="username"
+                  name="username"
+                  placeholder="Enter Username"
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  onChange={this.handleInput}
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                />
+              </Form.Group>
+            </>
+          ) : (
+            <>
+              <Form.Group controlId="formBasicUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  onChange={this.handleInput}
+                  type="username"
+                  name="username"
+                  placeholder="Enter Username"
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  onChange={this.handleInput}
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                />
+              </Form.Group>
+            </>
+          )}
+          {this.state.form === "Log In" ? (
+            <div>
+              <Button
+                onClick={this.handleLogin}
+                // className="edit-btn"
+                style={{ width: "100%" }}
+                variant="primary"
+                type="submit"
+              >
+                {this.state.form}
+              </Button>
+              <Form.Text className="text-muted" onClick={this.switchForm}>
+                Don't have an account? Click here to sign up.
+              </Form.Text>
+            </div>
+          ) : (
+            <div>
+              <Button
+                onClick={this.handleSignUp}
+                className="edit-btn"
+                style={{ width: "100%" }}
+                variant="primary"
+                type="submit"
+              >
+                {this.state.form}
+              </Button>
+              <Form.Text className="text-muted" onClick={this.switchForm}>
+                Already have an account? Click here to login.
+              </Form.Text>
+            </div>
+          )}
+        </Form>
+        {this.state.error ? <p className="error">{this.state.error}</p> : null}
+      </div>
+    );
   }
 }

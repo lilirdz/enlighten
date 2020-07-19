@@ -1,7 +1,11 @@
 import React from "react";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginContainer from "./containers/LoginContainer";
+import SchoolsContainer from "./containers/SchoolsContainer";
+import ProfileContainer from "./containers/ProfileContainer";
+import NavBar from "./components/NavBar";
 
 class App extends React.Component {
   state = {
@@ -33,11 +37,11 @@ class App extends React.Component {
       return (
         <div>
           <BrowserRouter>
-            {/* <NavBar logout={this.logout} loggedIn={this.state.loggedIn} /> */}
+            <NavBar logout={this.logout} loggedIn={this.state.loggedIn} />
             <Switch>
               <Route
                 exact
-                path="/log-in"
+                path="/login"
                 render={(routeProps) => (
                   <LoginContainer login={this.login} {...routeProps} />
                 )}
@@ -46,6 +50,50 @@ class App extends React.Component {
           </BrowserRouter>
         </div>
       );
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <NavBar logout={this.logout} loggedIn={this.state.loggedIn} />
+          <div style={{ margin: "20px" }}>
+            <Switch>
+              <Route
+                exact
+                path="/login"
+                render={(routeProps) => (
+                  <LoginContainer login={this.login} {...routeProps} />
+                )}
+              />
+              <Route
+                exact
+                path="/schools"
+                render={(routeProps) => <SchoolsContainer {...routeProps} />}
+              />
+              <Route
+                exact
+                path="/profile"
+                render={(routeProps) => {
+                  return (
+                    <div>
+                      <ProfileContainer {...routeProps} />
+                    </div>
+                  );
+                }}
+              />
+              <Route
+                exact
+                path="/"
+                render={(routeProps) => <ProfileContainer {...routeProps} />}
+              />
+              <Route
+                exact
+                path="/schools/:id"
+                render={(routeProps) => <SchoolsContainer {...routeProps} />}
+              />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </div>
+    );
   }
 }
 
