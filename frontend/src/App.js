@@ -3,8 +3,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginContainer from "./containers/LoginContainer";
-import SchoolsContainer from "./containers/SchoolsContainer";
-import ProfileContainer from "./containers/ProfileContainer";
+import SchoolsContainer from "./containers/SchoolsContainer.js";
+import IndividualSchoolContainer from "./containers/IndividualSchoolContainer.js";
+import ProfileContainer from "./containers/ProfileContainer.js";
 import NavBar from "./components/NavBar";
 
 class App extends React.Component {
@@ -87,7 +88,9 @@ class App extends React.Component {
               <Route
                 exact
                 path="/schools/:id"
-                render={(routeProps) => <SchoolsContainer {...routeProps} />}
+                render={(routeProps) => (
+                  <IndividualSchoolContainer {...routeProps} />
+                )}
               />
             </Switch>
           </div>

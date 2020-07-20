@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :schools, only: [:index,:show]
       resources :school_ambassadors
       resources :categories
-      resources :users, only: [:create, :destroy, :show]
+      resources :users
       post '/login', to: 'auth#create'
     end
   end
