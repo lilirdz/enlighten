@@ -1,7 +1,7 @@
 class Api::V1::SchoolYearsController < ApplicationController
 
     def index
-        render json: SchoolYear.all, include: :school
+        render json: SchoolYear.all
     end
 
     def show

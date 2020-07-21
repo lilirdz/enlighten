@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   # localhost:3000/api/v1/login
   namespace :api do
     namespace :v1 do
-      resources :comments
       resources :school_years, only: [:index,:show]
-      resources :articles, only: [:index,:show]
+      resources :resources, only: [:index,:show]
+      resources :resource_categories, only: [:index,:show]
       resources :prospective_schools
       resources :schools, only: [:index,:show]
       resources :school_ambassadors

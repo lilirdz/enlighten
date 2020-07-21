@@ -11,14 +11,33 @@ Category.destroy_all
 School.destroy_all
 SchoolYear.destroy_all
 SchoolAmbassador.destroy_all
-Article.destroy_all
 ProspectiveSchool.destroy_all
+Resource.destroy_all
+ResourceCategory.destroy_all
 
 require 'httparty'
 
 u1 = User.create!(name:"lili",username:"lilirod",password:"123")
 
 category1 = Category.create!(name:"Target Schools",user_id:u1.id)
+
+resource_category1 = ResourceCategory.create!(name:"Scholarships")
+resource_category2 = ResourceCategory.create!(name:"Student Loan Information")
+resource_category3 = ResourceCategory.create!(name:"Internships/Fellowships")
+resource_category4 = ResourceCategory.create!(name:"Additional Resources")
+
+resource1 = Resource.create!(name:"Jopwell",organization_url:"https://www.jopwell.com/", about_snippet:"Jopwell is a diversity hiring startup that helps companies connect with and recruit underrepresented ethnic minority candidates for jobs and internships.",resource_category_id:resource_category3.id)
+resource2 = Resource.create!(name:"Student Loan Hero",organization_url:"https://studentloanhero.com",about_snippet:"Student Loan Hero is your destination for managing & eliminating student loans & personal debt.",resource_category_id:resource_category2.id)
+resource3 = Resource.create!(name:"Nerd Wallet",organization_url:"https://www.nerdwallet.com/",about_snippet:"We're on a mission to provide clarity for all of life's financial decisions.",resource_category_id:resource_category2.id)
+resource4 = Resource.create!(name:"Basta",organization_url:"https://projectbasta.com/",about_snippet:"Creating a bridge of opportunity  between employers and first-generation college goers of color to increase knowledge workforce diversity at all levels.",resource_category_id:resource_category3.id)
+resource5 = Resource.create!(name:"America Needs You",organization_url:"https://www.americaneedsyou.org",about_snippet:"America Needs You fights for economic mobility for ambitious, first-generation college students. We do this by providing transformative mentorship and intensive career development.",resource_category_id:resource_category3.id)
+resource6 = Resource.create!(name:"Grace Hopper Conference",organization_url:"https://ghc.anitab.org/",about_snippet:"The Grace Hopper Celebration of Women in Computing is a series of conferences designed to bring the research and career interests of women in computing to the forefront.",resource_category_id:resource_category4.id)
+resource7 = Resource.create!(name:"Code2040",organization_url:"http://www.code2040.org/",about_snippet:"Code2040 is a community of Black and Latinx technologists and their allies who are diversifying tech to create a more equitable, inclusive, and prosperous economy.",resource_category_id:resource_category3.id)
+resource8 = Resource.create!(name:"UStrive",organization_url:"https://www.ustrive.com/",about_snippet:"UStrive connects high school and college students with a mentor to help with everything from college applications and financial aid to exploring career opportunities -- all through our online mentoring platform.",resource_category_id:resource_category4.id)
+resource9 = Resource.create!(name:"Southwest Lanzate Scholarship",organization_url:"https://www.hacu.net/hacu/Lanzate.asp",about_snippet:"HACU and Southwest Airlines will award roundtrip tickets to currently enrolled undergraduate and graduate students across the country who travel away from home to pursue a higher education.",resource_category_id:resource_category1.id)
+resource10 = Resource.create!(name:"Cafe Bustelo Scholarship",organization_url:"https://www.cafebustelo.com/en/scholarship",about_snippet:"Café Bustelo® aims to invest in the Latino community by awarding scholarships to those who seek better futures for themselves, their families and their communities.",resource_category_id:resource_category1.id)
+resource11 = Resource.create!(name:"Ron Brown Scholarship",organization_url:"https://www.ronbrown.org/section/apply/program-description",about_snippet:"The Ron Brown Scholarship honors the legacy of Ronald H. Brown through a selective scholarship program that advances higher education for community-minded and intellectually gifted African Americans.",resource_category_id:resource_category1.id)
+resource12 = Resource.create!(name:"The Agnes Jones Jackson Scholarship",organization_url:"https://www.poisefoundation.org/the-agnes-jones-jackson-scholarship",about_snippet:"The Agnes Jones Jackson Scholarship was established in the memory of the late Agnes Jones Jackson who was a long time NAACP member from the San Francisco branch.",resource_category_id:resource_category1.id)
 
 
 MY_API_KEY = ENV['college_scorecard_api_key']
@@ -66,6 +85,5 @@ end
 
 school_ambassador1 = SchoolAmbassador.create!(name:"Roxy",major:"Mathematics",school_id:School.all.sample.id)
 
-a1 = Article.create!(name:"Perks of Going to School Out of State", body:"hello world",school_ambassador_id:school_ambassador1.id)
 
 ps1 = ProspectiveSchool.create!(school_id:School.all.sample.id,user_id:u1.id,category_id:category1.id)

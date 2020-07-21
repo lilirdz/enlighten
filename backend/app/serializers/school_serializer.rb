@@ -1,3 +1,3 @@
 class SchoolSerializer < ActiveModel::Serializer
-  attributes :name, :city, :state, :school_url
+  attributes :id, :name, :city, :state, :school_url
 end

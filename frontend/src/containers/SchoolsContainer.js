@@ -1,6 +1,7 @@
 import React from "react";
 import SchoolList from "../components/SchoolList.js";
 import SearchContainer from "../containers/SearchContainer.js";
+// import Pagination from "../components/Pagination.js";
 
 export default class SchoolsContainer extends React.Component {
   state = {
@@ -32,6 +33,10 @@ export default class SchoolsContainer extends React.Component {
     });
   };
 
+  //   handlePageClick = () => {
+
+  //   }
+
   render() {
     const searchSchools = this.state.schools.filter((school) =>
       school.name.toLowerCase().includes(this.state.search.toLowerCase())
@@ -41,6 +46,7 @@ export default class SchoolsContainer extends React.Component {
       <div>
         <SearchContainer handleSearch={this.handleSearch} />
         <SchoolList schools={searchSchools} />
+        {/* <Pagination handlePageClick={this.handlePageClick} /> */}
       </div>
     );
   }

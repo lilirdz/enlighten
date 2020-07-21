@@ -1,5 +1,9 @@
 class Api::V1::UsersController < ApplicationController
     skip_before_action :logged_in?, only: [:create]
+
+    def index
+      render json: User.all
+    end
     
     # Sign Up
     def create
@@ -15,20 +19,26 @@ class Api::V1::UsersController < ApplicationController
 
     def show
       user = User.find(params[:id])
-      serialized_schools = user.schools.map do |school| 
+      serialized_schools = user.prospective_schools.map do |school| 
         {
-          id: school.id,
-          name: school.name,
-          city: school.city,
-          state: school.state,
-          created_by: User.find(school.user_id).username,
-          category: Category.find(school.category_id).name,
+          # id: school.id,
+          school_id: School.find(school.school_id),
+          category_id: Category.find(school.category_id)
+        }
+      end
+      serialized_categories = user.categories.map do |category|
+        {
+        id: category.id,
+        name: category.name
         }
       end
       user_serialized = {
-        schools: serialized_schools
+        user: user,
+        schools: serialized_schools,
+        categories: serialized_categories
       }
       render json: user_serialized
+      # render json: user
     end
 
     def destroy

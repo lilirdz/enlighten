@@ -1,26 +1,27 @@
-class CategoriesController < ApplicationController
+class Api::V1::CategoriesController < ApplicationController
 
     def index
-        render json: Category.all, include: :schools
+        render json: Category.all, include: :prospective_schools
     end
 
     def show
         category = Category.find(params[:id])
-        serialized_category = {
-            name: category.name,
-            user_id: category.user_id,
-            schools: category.schools.map do |school|
-                {
-                id: school.id,
-                name: school.name,
-                city: school.city,
-                state: school.state,
-                created_by: User.find(school.user_id).username,
-                category: Category.find(school.category_id).name,
-                }
-            end
-        }
-        render json: serialized_category
+        # serialized_category = {
+        #     name: category.name,
+        #     user_id: category.user_id,
+        #     prospective_schools: category.prospective_schools.map do |school|
+        #         {
+        #         id: school.id,
+        #         name: school.name,
+        #         city: school.city,
+        #         state: school.state,
+        #         created_by: User.find(school.user_id).username,
+        #         category: Category.find(school.category_id).name,
+        #         }
+        #     end
+        # }
+        # render json: serialized_category
+        render json: category
     end
 
     def create 
