@@ -6,6 +6,7 @@ import LoginContainer from "./containers/LoginContainer";
 import SchoolsContainer from "./containers/SchoolsContainer.js";
 import IndividualSchoolContainer from "./containers/IndividualSchoolContainer.js";
 import ProfileContainer from "./containers/ProfileContainer.js";
+import ResourcesContainer from "./containers/ResourcesContainer.js";
 import NavBar from "./components/NavBar";
 
 class App extends React.Component {
@@ -68,6 +69,11 @@ class App extends React.Component {
                 exact
                 path="/schools"
                 render={(routeProps) => <SchoolsContainer {...routeProps} />}
+              />
+              <Route
+                exact
+                path="/resources"
+                render={(routeProps) => <ResourcesContainer {...routeProps} />}
               />
               <Route
                 exact

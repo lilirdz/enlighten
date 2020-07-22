@@ -20,6 +20,9 @@ class NavBar extends React.Component {
             <Nav.Link as={Link} to="/schools">
               Explore Schools
             </Nav.Link>
+            <Nav.Link as={Link} to="/resources">
+              Resources
+            </Nav.Link>
             <Nav.Link as={Link} to="/profile">
               My Profile
             </Nav.Link>

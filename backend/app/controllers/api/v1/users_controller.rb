@@ -22,8 +22,8 @@ class Api::V1::UsersController < ApplicationController
       serialized_schools = user.prospective_schools.map do |school| 
         {
           id: school.id,
-          school_id: School.find(school.school_id),
-          category_id: Category.find(school.category_id)
+          school: School.find(school.school_id),
+          category: Category.find(school.category_id).name
         }
       end
       serialized_categories = user.categories.map do |category|
