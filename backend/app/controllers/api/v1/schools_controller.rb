@@ -9,6 +9,7 @@ class Api::V1::SchoolsController < ApplicationController
     def show
       school = School.find(params[:id])
       serialized_school = {
+        id: school.id,
         name: school.name,
         city: school.city,
         state: school.state,

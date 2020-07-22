@@ -4,7 +4,7 @@ import SchoolStats from "./SchoolStats";
 
 export default class SchoolData extends React.Component {
   render() {
-    console.log(this.props.school.school_years);
+    // console.log(this.props.school.school_years);
 
     return (
       <div>

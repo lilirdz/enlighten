@@ -35,17 +35,18 @@ export default class AddSchoolToCategory extends React.Component {
       });
   };
 
-  saveSchool = (e) => {
+  saveSchool = () => {
     fetch("http://localhost:3000/api/v1/prospective_schools", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.token}`,
         "Content-type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify({
         school_id: this.props.school.id,
         user_id: localStorage.user_id,
-        category_id: this.state.categories,
+        category_id: this.state.category_id,
       }),
     })
       .then((res) => res.json())
@@ -54,7 +55,10 @@ export default class AddSchoolToCategory extends React.Component {
       });
   };
   render() {
-    console.log(this.state.userCategories.categories);
+    console.log(this.state.userCategories);
+
+    console.log(this.props.school.id);
+    console.log(localStorage.user_id);
     return (
       <div>
         <Button onClick={this.handleModal}>Add School</Button>
@@ -78,7 +82,7 @@ export default class AddSchoolToCategory extends React.Component {
                 <option selected disabled>
                   choose a Category...
                 </option>
-                {this.props.userCategories.map((category) => {
+                {this.state.userCategories.map((category) => {
                   return <option value={category.id}>{category.name}</option>;
                 })}
               </select>

@@ -9,17 +9,15 @@ class Api::V1::ProspectiveSchoolsController < ApplicationController
     end
     
     def create 
-        category = Category.find(params[:category_id])
-        if category.user_id == @user.id
-            prospective_school_created = ProspectiveSchool.create(
-                school_id: params[:school_id],
-                user_id: params[:user_id],
-                category_id: params[:category_id]
-            )
-            render json: prospective_school_created
-        else 
-            render json: {"error": "You can only add prospective schools to a category that you own"}
+        prospective_school = ProspectiveSchool.new(prospective_school_params)
+
+        if prospective_school.valid?
+            prospective_school.save
+            render json: {prospective_school: ProspectiveSchoolsSerializer.new(prospective_school)}, status: :created
+        else
+            render json: {error: "Failed to add school"}, status: :not_acceptable
         end
+        
     end
 
     def update
@@ -43,5 +41,11 @@ class Api::V1::ProspectiveSchoolsController < ApplicationController
         else
            render json: {"error": "Only the user who owns the category can remove prospective schools"} 
         end
+    end
+
+    private
+
+    def prospective_school_params
+        params.require(:prospective_school).permit(:school_id, :category_id, :user_id)
     end
 end

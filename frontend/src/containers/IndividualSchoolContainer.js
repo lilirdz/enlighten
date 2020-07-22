@@ -1,7 +1,7 @@
 import React from "react";
 import SchoolBasicInfo from "../components/SchoolBasicInfo";
 import SchoolData from "../components/SchoolData";
-// import AddSchoolToCategory from "../components/AddSchoolToCategory";
+import AddSchoolToCategory from "../components/AddSchoolToCategory";
 
 export default class IndividualSchoolContainer extends React.Component {
   state = {
@@ -26,7 +26,7 @@ export default class IndividualSchoolContainer extends React.Component {
       );
   }
   render() {
-    // console.log(this.state.school);
+    console.log(this.state.school);
     return (
       <div>
         {this.state.school === null ? (
@@ -34,7 +34,7 @@ export default class IndividualSchoolContainer extends React.Component {
         ) : (
           <div>
             <SchoolBasicInfo school={this.state.school} />
-            {/* <AddSchoolToCategory school={this.state.school} /> */}
+            <AddSchoolToCategory school={this.state.school} />
             <SchoolData school={this.state.school} />
           </div>
         )}
