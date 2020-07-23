@@ -3,7 +3,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 
 export default function SchoolBasicInfo(props) {
   const { school } = props;
-  console.log(school.school_url);
+
   return (
     <div>
       <Jumbotron className="school-details">

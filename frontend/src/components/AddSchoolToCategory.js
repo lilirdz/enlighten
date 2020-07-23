@@ -28,6 +28,7 @@ export default class AddSchoolToCategory extends React.Component {
     })
       .then((res) => res.json())
       .then((userCategories) => {
+        console.log(userCategories);
         this.setState({
           userCategories: userCategories.categories,
           isLoading: false,
@@ -54,6 +55,7 @@ export default class AddSchoolToCategory extends React.Component {
       });
   };
   render() {
+    console.log(this.state.userCategories);
     return (
       <div>
         <Button onClick={this.handleModal}>Add School</Button>
@@ -74,9 +76,7 @@ export default class AddSchoolToCategory extends React.Component {
                 }
               >
                 <strong>Your Categories</strong>
-                <option selected disabled>
-                  choose a Category...
-                </option>
+                <option>choose a Category...</option>
                 {this.state.userCategories.map((category) => {
                   return <option value={category.id}>{category.name}</option>;
                 })}

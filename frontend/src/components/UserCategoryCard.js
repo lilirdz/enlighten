@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import UserSchoolList from "../components/UserSchoolList";
 
 export default class UserCategoryCard extends React.Component {
@@ -8,6 +9,19 @@ export default class UserCategoryCard extends React.Component {
       (schoolObj) => schoolObj.category === this.props.category.name
     );
     return filteredSchools;
+  };
+
+  deleteCategory = (e) => {
+    const id = e.target.id;
+    fetch(`http://localhost:3000/api/v1/categories/${id}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${localStorage.token}` },
+    })
+      .then((res) => res.json())
+      .then(() => {
+        this.props.removeCategory(id);
+        // console.log(obj);
+      });
   };
 
   render() {
@@ -25,6 +39,9 @@ export default class UserCategoryCard extends React.Component {
               list={this.filteredSchools()}
               removeSchool={this.props.removeSchool}
             />
+            <Button id={category.id} onClick={this.deleteCategory}>
+              Delete
+            </Button>
           </Card.Body>
         </Card>
       </div>

@@ -12,6 +12,7 @@ class Api::V1::UsersController < ApplicationController
       if user.valid?
         user.save
         render json: {user: UserSerializer.new(user)}, status: :created
+        
       else
         render json: {error: "Failed to create a user"}, status: :not_acceptable
       end
@@ -29,7 +30,13 @@ class Api::V1::UsersController < ApplicationController
       serialized_categories = user.categories.map do |category|
         {
         id: category.id,
-        name: category.name
+        name: category.name,
+        # schools: category.prospective_schools.map do |school|
+        #   {
+        #   id: school.id,
+        #   school: School.find(school.school_id)
+        #   }
+        # end
         }
       end
       user_serialized = {
@@ -53,7 +60,7 @@ class Api::V1::UsersController < ApplicationController
     private
   
     def user_params
-      params.require(:user).permit(:name,:username, :password)
+      params.permit(:name,:username, :password)
     end
   end
   

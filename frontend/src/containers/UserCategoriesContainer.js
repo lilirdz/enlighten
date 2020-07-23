@@ -12,6 +12,7 @@ export default class UserCategoriesContainer extends React.Component {
             category={category}
             schools={this.props.data.schools}
             removeSchool={this.props.removeSchool}
+            removeCategory={this.props.removeCategory}
           />
         ))}
       </div>

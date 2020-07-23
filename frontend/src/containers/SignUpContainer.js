@@ -2,14 +2,33 @@ import React from "react";
 import "../App.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Link from "react-router-dom/Link";
 
-export default class LoginContainer extends React.Component {
+export default class SignUpContainer extends React.Component {
   state = {
     name: "",
     username: "",
     password: "",
     error: false,
+  };
+
+  handleSignUp = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3000/api/v1/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        username: this.state.username,
+        password: this.state.password,
+      }),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        this.handleLogin();
+      });
   };
 
   handleLogin = (e = null) => {
@@ -25,7 +44,7 @@ export default class LoginContainer extends React.Component {
         password: this.state.password,
       }),
     })
-      .then((r) => r.json())
+      .then((res) => res.json())
       .then((userInfo) => {
         if (userInfo.error) {
           this.setState({
@@ -50,7 +69,16 @@ export default class LoginContainer extends React.Component {
     return (
       <div>
         <Form>
-          <h3>Log In</h3>
+          <h3>Sign Up</h3>
+          <Form.Group controlId="formBasicName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              onChange={this.handleInput}
+              type="name"
+              name="name"
+              placeholder="Enter Name"
+            />
+          </Form.Group>
 
           <Form.Group controlId="formBasicUsername">
             <Form.Label>Username</Form.Label>
@@ -72,16 +100,14 @@ export default class LoginContainer extends React.Component {
           </Form.Group>
 
           <Button
-            onClick={this.handleLogin}
+            onClick={this.handleSignUp}
+            className="edit-btn"
             style={{ width: "100%" }}
             variant="primary"
             type="submit"
           >
-            Log In
+            Sign Up
           </Button>
-          <Form.Text className="text-muted" as={Link} to={"/signup"}>
-            Don't have an account? Click here to sign up.
-          </Form.Text>
         </Form>
         {this.state.error ? <p className="error">{this.state.error}</p> : null}
       </div>

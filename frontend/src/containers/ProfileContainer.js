@@ -46,15 +46,45 @@ export default class ProfileContainer extends React.Component {
     });
   };
 
+  addCategory = (newCategory) => {
+    this.setState({
+      categories: [...this.state.categories, newCategory],
+    });
+  };
+
+  removeCategory = (categoryId) => {
+    // this.removeSchool(categoryId);
+    this.setState({
+      categories: this.state.categories.filter(
+        (category) => category.id !== parseInt(categoryId)
+      ),
+    });
+  };
+
   render() {
     console.log(this.state);
     return (
       <div>
-        <UserInfo details={this.state.user} />
-        <UserCategoriesContainer
-          data={this.state}
-          removeSchool={this.removeSchool}
-        />
+        {this.state.categories === null ? (
+          <div>
+            <UserInfo
+              details={this.state.user}
+              addCategory={this.addCategory}
+            />
+          </div>
+        ) : (
+          <div>
+            <UserInfo
+              details={this.state.user}
+              addCategory={this.addCategory}
+            />
+            <UserCategoriesContainer
+              data={this.state}
+              removeSchool={this.removeSchool}
+              removeCategory={this.removeCategory}
+            />
+          </div>
+        )}
       </div>
     );
   }

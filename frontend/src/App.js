@@ -3,6 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginContainer from "./containers/LoginContainer";
+import SignUpContainer from "./containers/SignUpContainer";
 import SchoolsContainer from "./containers/SchoolsContainer.js";
 import IndividualSchoolContainer from "./containers/IndividualSchoolContainer.js";
 import ProfileContainer from "./containers/ProfileContainer.js";
@@ -48,6 +49,13 @@ class App extends React.Component {
                   <LoginContainer login={this.login} {...routeProps} />
                 )}
               />
+              <Route
+                exact
+                path="/signup"
+                render={(routeProps) => (
+                  <SignUpContainer login={this.login} {...routeProps} />
+                )}
+              />
             </Switch>
           </BrowserRouter>
         </div>
@@ -63,6 +71,13 @@ class App extends React.Component {
                 path="/login"
                 render={(routeProps) => (
                   <LoginContainer login={this.login} {...routeProps} />
+                )}
+              />
+              <Route
+                exact
+                path="/signup"
+                render={(routeProps) => (
+                  <SignUpContainer login={this.login} {...routeProps} />
                 )}
               />
               <Route

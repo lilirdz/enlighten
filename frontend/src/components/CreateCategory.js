@@ -21,7 +21,8 @@ export default class CreateCategory extends React.Component {
       }),
     })
       .then((res) => res.json())
-      .then(() => {
+      .then((obj) => {
+        this.props.addCategory(obj);
         this.handleModal();
       });
   };
