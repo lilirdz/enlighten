@@ -44,6 +44,7 @@ class Api::V1::CategoriesController < ApplicationController
 
     def destroy 
         category_to_delete = Category.find(params[:id])
+        # category_to_delete.prospective_schools.destroy_all
         category_to_delete.destroy
         render json: {"success": "category was deleted"}
     end

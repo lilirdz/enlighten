@@ -52,6 +52,7 @@ export default class AddSchoolToCategory extends React.Component {
       .then((res) => res.json())
       .then(() => {
         this.handleModal();
+        this.props.routeProps.history.push("/profile");
       });
   };
   render() {

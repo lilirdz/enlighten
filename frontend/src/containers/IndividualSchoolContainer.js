@@ -34,7 +34,10 @@ export default class IndividualSchoolContainer extends React.Component {
         ) : (
           <div>
             <SchoolBasicInfo school={this.state.school} />
-            <AddSchoolToCategory school={this.state.school} />
+            <AddSchoolToCategory
+              school={this.state.school}
+              routeProps={this.props}
+            />
             <SchoolData school={this.state.school} />
           </div>
         )}

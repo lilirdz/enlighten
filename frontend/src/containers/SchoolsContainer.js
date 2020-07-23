@@ -41,11 +41,11 @@ export default class SchoolsContainer extends React.Component {
     const searchSchools = this.state.schools.filter((school) =>
       school.name.toLowerCase().includes(this.state.search.toLowerCase())
     );
-
+    console.log(this.props);
     return (
       <div>
         <SearchContainer handleSearch={this.handleSearch} />
-        <SchoolList schools={searchSchools} />
+        <SchoolList schools={searchSchools} routeProps={this.props} />
         {/* <Pagination handlePageClick={this.handlePageClick} /> */}
       </div>
     );

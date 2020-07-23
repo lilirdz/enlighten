@@ -20,7 +20,6 @@ export default class UserCategoryCard extends React.Component {
       .then((res) => res.json())
       .then(() => {
         this.props.removeCategory(id);
-        // console.log(obj);
       });
   };
 

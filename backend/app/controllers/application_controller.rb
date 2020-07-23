@@ -21,7 +21,7 @@ class ApplicationController < ActionController::API
             #always runs with an error or without
         end
 
-        render json: {error: "Please Login"} unless @user
+        # render json: {error: "Please Login"} unless @user
         
     end
 end

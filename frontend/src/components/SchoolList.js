@@ -10,7 +10,11 @@ export default function SchoolList(props) {
   return (
     <div>
       {schools.map((school) => (
-        <SchoolCard key={school.id} school={school} />
+        <SchoolCard
+          key={school.id}
+          school={school}
+          routeProps={props.routeProps}
+        />
       ))}
     </div>
   );

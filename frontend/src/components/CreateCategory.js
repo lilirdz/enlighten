@@ -8,7 +8,7 @@ export default class CreateCategory extends React.Component {
     name: "",
   };
 
-  createCategory = (e) => {
+  createCategory = () => {
     fetch("http://localhost:3000/api/v1/categories", {
       method: "POST",
       headers: {
@@ -24,6 +24,7 @@ export default class CreateCategory extends React.Component {
       .then((obj) => {
         this.props.addCategory(obj);
         this.handleModal();
+        this.props.routeProps.history.push("/schools");
       });
   };
 
@@ -41,15 +42,17 @@ export default class CreateCategory extends React.Component {
             <Modal.Title>Create A Category</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <label>
-              <label>Name Your Category</label>
-              <input
-                type="text"
-                placeholder="Category's Name"
-                value={this.state.name}
-                onChange={(e) => this.setState({ name: e.target.value })}
-              />
-            </label>
+            <form>
+              <label>
+                <label>Name Your Category</label>
+                <input
+                  type="text"
+                  placeholder="Category's Name"
+                  value={this.state.name}
+                  onChange={(e) => this.setState({ name: e.target.value })}
+                />
+              </label>
+            </form>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={() => this.handleModal()}>

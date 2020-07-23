@@ -53,7 +53,6 @@ export default class ProfileContainer extends React.Component {
   };
 
   removeCategory = (categoryId) => {
-    // this.removeSchool(categoryId);
     this.setState({
       categories: this.state.categories.filter(
         (category) => category.id !== parseInt(categoryId)
@@ -62,7 +61,6 @@ export default class ProfileContainer extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div>
         {this.state.categories === null ? (
@@ -70,6 +68,7 @@ export default class ProfileContainer extends React.Component {
             <UserInfo
               details={this.state.user}
               addCategory={this.addCategory}
+              routeProps={this.props}
             />
           </div>
         ) : (
@@ -77,11 +76,13 @@ export default class ProfileContainer extends React.Component {
             <UserInfo
               details={this.state.user}
               addCategory={this.addCategory}
+              routeProps={this.props}
             />
             <UserCategoriesContainer
               data={this.state}
               removeSchool={this.removeSchool}
               removeCategory={this.removeCategory}
+              routeProps={this.props}
             />
           </div>
         )}
