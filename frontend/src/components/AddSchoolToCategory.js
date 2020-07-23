@@ -41,7 +41,6 @@ export default class AddSchoolToCategory extends React.Component {
       headers: {
         Authorization: `Bearer ${localStorage.token}`,
         "Content-type": "application/json",
-        Accept: "application/json",
       },
       body: JSON.stringify({
         school_id: this.props.school.id,
@@ -55,10 +54,6 @@ export default class AddSchoolToCategory extends React.Component {
       });
   };
   render() {
-    console.log(this.state.userCategories);
-
-    console.log(this.props.school.id);
-    console.log(localStorage.user_id);
     return (
       <div>
         <Button onClick={this.handleModal}>Add School</Button>
