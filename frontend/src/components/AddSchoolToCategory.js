@@ -28,7 +28,7 @@ export default class AddSchoolToCategory extends React.Component {
     })
       .then((res) => res.json())
       .then((userCategories) => {
-        console.log(userCategories);
+        // console.log(userCategories);
         this.setState({
           userCategories: userCategories.categories,
           isLoading: false,
@@ -56,7 +56,7 @@ export default class AddSchoolToCategory extends React.Component {
       });
   };
   render() {
-    console.log(this.state.userCategories);
+    // console.log(this.state.userCategories);
     return (
       <div>
         <Button onClick={this.handleModal}>Add School</Button>
