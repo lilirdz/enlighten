@@ -1,7 +1,16 @@
 import React from "react";
 import SchoolBasicInfo from "../components/SchoolBasicInfo";
-import SchoolData from "../components/SchoolData";
+// import SchoolData from "../components/SchoolData";
 import AddSchoolToCategory from "../components/AddSchoolToCategory";
+import DemoChart from "../components/DemoChart";
+import Tuition from "../components/Tuition";
+import CompletionRate from "../components/CompletionRate";
+import EnrollmentRate from "../components/EnrollmentRate";
+import AdmissionsRate from "../components/AdmissionsRate";
+import RetentionRate from "../components/RetentionRate";
+import FirstGenTotal from "../components/FirstGenTotal";
+import FirstGenMedianDebt from "../components/FirstGenMedianDebt";
+import AlumniEarnings from "../components/AlumniEarnings";
 
 export default class IndividualSchoolContainer extends React.Component {
   state = {
@@ -27,6 +36,7 @@ export default class IndividualSchoolContainer extends React.Component {
   }
   render() {
     console.log(this.state.school);
+
     return (
       <div>
         {this.state.school === null ? (
@@ -38,7 +48,16 @@ export default class IndividualSchoolContainer extends React.Component {
               school={this.state.school}
               routeProps={this.props}
             />
-            <SchoolData school={this.state.school} />
+            <DemoChart data={this.state.school} />
+            <Tuition data={this.state.school} />
+            <CompletionRate data={this.state.school} />
+            <EnrollmentRate data={this.state.school} />
+            <AdmissionsRate data={this.state.school} />
+            <RetentionRate data={this.state.school} />
+            <FirstGenTotal data={this.state.school} />
+            <FirstGenMedianDebt data={this.state.school} />
+            <AlumniEarnings data={this.state.school} />
+            {/* <SchoolData school={this.state.school} /> */}
           </div>
         )}
       </div>
