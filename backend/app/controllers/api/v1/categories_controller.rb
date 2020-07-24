@@ -31,15 +31,8 @@ class Api::V1::CategoriesController < ApplicationController
 
     def update
         category_to_update = Category.find(params[:id])
-        if category_to_update.user_id == @user.id 
-            category_to_update.update(
-              name: params[:name],
-              user_id: @user.id
-            )
-            render json: category_to_update
-        else 
-            render json: {"error": "You must have created the category to edit it"} 
-        end
+        category_to_update.update(category_params)
+        render json: category_to_update
     end
 
     def destroy 
@@ -47,6 +40,12 @@ class Api::V1::CategoriesController < ApplicationController
         # category_to_delete.prospective_schools.destroy_all
         category_to_delete.destroy
         render json: {"success": "category was deleted"}
+    end
+
+    private
+
+    def category_params
+        params.permit(:id,:name)
     end
 
 end
