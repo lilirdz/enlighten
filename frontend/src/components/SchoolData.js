@@ -1,7 +1,6 @@
 import React from "react";
 import SchoolDemographics from "../components/SchoolDemographics";
 import SchoolStats from "./SchoolStats";
-// import DemoChart from "./DemoChart";
 
 export default class SchoolData extends React.Component {
   render() {
@@ -14,7 +13,6 @@ export default class SchoolData extends React.Component {
             <h3>{schoolYear.year}</h3>
             <SchoolDemographics schoolYear={schoolYear} />
             <SchoolStats schoolYear={schoolYear} />
-            {/* <DemoChart data={schoolYear} /> */}
           </div>
         ))}
       </div>

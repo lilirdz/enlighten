@@ -1,19 +1,12 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import EditableLabel from "react-inline-editing";
 import UserSchoolList from "../components/UserSchoolList";
 
 export default class UserCategoryCard extends React.Component {
   state = {
-    show: false,
     name: this.props.category.name,
-  };
-
-  handleModal = () => {
-    this.setState({
-      show: !this.state.show,
-    });
   };
 
   filteredSchools = () => {
@@ -35,7 +28,7 @@ export default class UserCategoryCard extends React.Component {
       });
   };
 
-  editCategory = () => {
+  editCategory = (text) => {
     let id = this.props.category.id;
     fetch(`http://localhost:3000/api/v1/categories/${id}`, {
       method: "PATCH",
@@ -44,7 +37,7 @@ export default class UserCategoryCard extends React.Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: this.state.name,
+        name: text,
       }),
     })
       .then((res) => res.json())
@@ -52,7 +45,6 @@ export default class UserCategoryCard extends React.Component {
         this.setState({
           name: updatedCategory.name,
         });
-        this.handleModal();
       });
   };
 
@@ -63,7 +55,20 @@ export default class UserCategoryCard extends React.Component {
       <div>
         <Card>
           <Card.Body>
-            <Card.Title>{this.state.name}</Card.Title>
+            <Card.Title>
+              <EditableLabel
+                text={this.state.name}
+                labelClassName="myLabelClass"
+                inputClassName="myInputClass"
+                inputWidth="200px"
+                inputHeight="25px"
+                inputMaxLength="50"
+                labelFontWeight="bold"
+                inputFontWeight="bold"
+                onChange={(e) => this.setState({ name: e.target.value })}
+                onFocusOut={this.editCategory}
+              />
+            </Card.Title>
             <UserSchoolList
               category={category}
               list={this.filteredSchools()}
@@ -72,34 +77,8 @@ export default class UserCategoryCard extends React.Component {
             <Button id={category.id} onClick={this.deleteCategory}>
               Delete Category
             </Button>
-            <Button id={category.id} onClick={this.handleModal}>
-              Edit Category
-            </Button>
           </Card.Body>
         </Card>
-        <Modal show={this.state.show}>
-          <Modal.Header closeButton onClick={() => this.handleModal()}>
-            <Modal.Title>Rename Your Category</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <label>
-              <label>New Name</label>
-              <input
-                type="text"
-                value={this.state.name}
-                onChange={(e) => this.setState({ name: e.target.value })}
-              />
-            </label>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={() => this.handleModal()}>
-              Close
-            </Button>
-            <Button onClick={this.editCategory} variant="primary">
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
       </div>
     );
   }
