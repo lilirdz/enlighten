@@ -1,7 +1,9 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
+import IconButton from "@material-ui/core/IconButton";
+import ClearIcon from "@material-ui/icons/Clear";
 
 export default class UserSchoolList extends React.Component {
   deleteSchool = (e) => {
@@ -40,9 +42,16 @@ export default class UserSchoolList extends React.Component {
                       <td>{x.school.city}</td>
                       <td>{x.school.state}</td>
                       <td>
-                        <Button id={x.id} onClick={this.deleteSchool}>
+                        {/* <Button id={x.id} onClick={this.deleteSchool}>
                           Delete School
-                        </Button>
+                        </Button> */}
+                        <IconButton size="small">
+                          <ClearIcon
+                            id={x.id}
+                            onClick={this.deleteSchool}
+                            fontSize="small"
+                          />
+                        </IconButton>
                       </td>
                     </tr>
                   </div>

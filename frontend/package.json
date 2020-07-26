@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@nivo/bar": "^0.62.0",
     "@nivo/line": "^0.62.0",
@@ -20,6 +21,7 @@
     "react-inline-editing": "^1.0.10",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-simple-infinite-scroll": "0.0.1",
     "recharts": "^1.8.5"
   },
   "scripts": {

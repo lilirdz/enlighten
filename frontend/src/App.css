@@ -1,5 +1,9 @@
-/* .App {
+.App {
   text-align: center;
+  /* font-family: "Questrial", sans-serif; */
+  /* font-family: "Heebo", sans-serif; */
+  /* font-family: "Hind Siliguri", sans-serif; */
+  font-family: "Poppins", sans-serif;
 }
 
 .App-logo {
@@ -35,8 +39,7 @@
   to {
     transform: rotate(360deg);
   }
-} */
-
+}
 .school-details {
   background-image: url(./images/university.jpg);
   background-size: 100%;
@@ -46,4 +49,20 @@
   text-align: center;
   /* color: red; */
   height: 26em;
+}
+
+.add-btn {
+  float: right;
+}
+
+.search-bar {
+  width: 200px;
+}
+
+.school-card {
+  width: 18rem;
+  height: 24rem;
+  margin: 3em;
+  margin-left: -30px;
+  margin-right: 2px;
 }

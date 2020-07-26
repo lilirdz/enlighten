@@ -1,15 +1,27 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
 
-export default class SearchContainer extends React.Component {
-  render() {
-    return (
-      <div>
-        <input
-          type="text"
-          placeholder="Search by School Name"
-          onChange={this.props.handleSearch}
-        />
-      </div>
-    );
-  }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "25ch",
+    },
+  },
+}));
+
+export default function SearchContainer(props) {
+  const classes = useStyles();
+
+  return (
+    <form className={classes.root} noValidate autoComplete="off">
+      <TextField
+        id="outlined-basic"
+        label="Search by School Name"
+        variant="outlined"
+        onChange={props.handleSearch}
+      />
+    </form>
+  );
 }

@@ -1,12 +1,19 @@
 import React from "react";
 import SchoolList from "../components/SchoolList.js";
 import SearchContainer from "../containers/SearchContainer.js";
+import CircularProgress from "@material-ui/core/CircularProgress";
 // import Pagination from "../components/Pagination.js";
+
+const style = {
+  color: "#9FA0FF",
+  marginTop: 300,
+};
 
 export default class SchoolsContainer extends React.Component {
   state = {
     schools: [],
     search: "",
+    loading: true,
   };
 
   componentDidMount() {
@@ -22,6 +29,7 @@ export default class SchoolsContainer extends React.Component {
       .then((data) =>
         this.setState({
           schools: data,
+          loading: false,
         })
       );
   };
@@ -33,10 +41,6 @@ export default class SchoolsContainer extends React.Component {
     });
   };
 
-  //   handlePageClick = () => {
-
-  //   }
-
   render() {
     const searchSchools = this.state.schools.filter((school) =>
       school.name.toLowerCase().includes(this.state.search.toLowerCase())
@@ -44,9 +48,13 @@ export default class SchoolsContainer extends React.Component {
     console.log(this.props);
     return (
       <div>
+        <h2>Explore Colleges and Universities Across the U.S.</h2>
         <SearchContainer handleSearch={this.handleSearch} />
-        <SchoolList schools={searchSchools} routeProps={this.props} />
-        {/* <Pagination handlePageClick={this.handlePageClick} /> */}
+        {this.state.loading ? (
+          <CircularProgress style={style} />
+        ) : (
+          <SchoolList schools={searchSchools} routeProps={this.props} />
+        )}
       </div>
     );
   }

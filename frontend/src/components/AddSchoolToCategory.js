@@ -1,17 +1,42 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+
+const style = {
+  background: "#9FA0FF",
+  color: "white",
+  boxShadow: "0 3px 5px 2px rgba(159, 160, 255, 0.5)",
+};
 
 export default class AddSchoolToCategory extends React.Component {
   state = {
     show: false,
     userCategories: [],
     isLoading: true,
+    open: false,
   };
 
   handleModal = () => {
     this.setState({
       show: !this.state.show,
+    });
+  };
+
+  handleSaveClick = () => {
+    console.log("clicked!");
+    this.setState({
+      open: true,
+    });
+  };
+
+  handleCloseSnackbar = () => {
+    this.setState({
+      open: false,
     });
   };
 
@@ -51,15 +76,25 @@ export default class AddSchoolToCategory extends React.Component {
     })
       .then((res) => res.json())
       .then(() => {
+        this.handleSaveClick();
         this.handleModal();
-        this.props.routeProps.history.push("/profile");
+        // this.props.routeProps.history.push("/profile");
       });
   };
   render() {
     // console.log(this.state.userCategories);
+
     return (
       <div>
-        <Button onClick={this.handleModal}>Add School</Button>
+        {/* <Button onClick={this.handleModal}>Add School</Button> */}
+        <Fab
+          style={style}
+          aria-label="add"
+          onClick={this.handleModal}
+          className="add-btn"
+        >
+          <AddIcon />
+        </Fab>
         <Modal show={this.state.show}>
           <Modal.Header
             className="lib-header"
@@ -77,7 +112,7 @@ export default class AddSchoolToCategory extends React.Component {
                 }
               >
                 <strong>Your Categories</strong>
-                <option>choose a Category...</option>
+                <option>Choose a Category...</option>
                 {this.state.userCategories.map((category) => {
                   return <option value={category.id}>{category.name}</option>;
                 })}
@@ -89,10 +124,31 @@ export default class AddSchoolToCategory extends React.Component {
               Close
             </Button>
             <Button onClick={this.saveSchool} className="edit-btn">
-              Save Changes
+              Add School
             </Button>
           </Modal.Footer>
         </Modal>
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          open={this.state.open}
+          autoHideDuration={6000}
+          onClose={this.handleCloseSnackbar}
+          message="School has Been Added!"
+          action={
+            <React.Fragment>
+              <IconButton
+                size="small"
+                aria-label="close"
+                onClick={this.handleCloseSnackbar}
+              >
+                <CloseIcon fontSize="small" />
+              </IconButton>
+            </React.Fragment>
+          }
+        />
       </div>
     );
   }
