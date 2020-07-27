@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import Card from "react-bootstrap/Card";
 
 export default class AdmissionsRate extends PureComponent {
   render() {
@@ -60,27 +61,44 @@ export default class AdmissionsRate extends PureComponent {
       },
     ];
     return (
-      <LineChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 35,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name">
-          {" "}
-          <Label value="Admissions Rate" offset={0} position="bottom" />{" "}
-        </XAxis>
-        <YAxis />
-        <Tooltip />
-        <Legend verticalAlign="top" className="chart-legend" />
-        <Line dataKey="Admissions Rate" stroke="#8884d8" />
-      </LineChart>
+      <div>
+        <Card className="chart-card">
+          <Card.Title>Admissions Rate</Card.Title>
+
+          <Card.Body className="chart-body">
+            <LineChart
+              width={550}
+              height={400}
+              data={data}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 35,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name">
+                {" "}
+                <Label
+                  value="Admissions Rate"
+                  offset={0}
+                  position="bottom"
+                />{" "}
+              </XAxis>
+              <YAxis />
+              <Tooltip />
+              <Legend verticalAlign="top" className="chart-legend" />
+              <Line dataKey="Admissions Rate" stroke="#42BFDD" />
+            </LineChart>
+          </Card.Body>
+          <Card.Footer className="chart-text">
+            The graph shows the percentage of applicants who were accepted to
+            the school. A lower admissions rate can indicate that the school is
+            highly selective of who they admit.
+          </Card.Footer>
+        </Card>
+      </div>
     );
   }
 }

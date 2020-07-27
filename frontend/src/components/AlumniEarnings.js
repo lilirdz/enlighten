@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import Card from "react-bootstrap/Card";
 
 export default class AlumniEarnings extends PureComponent {
   render() {
@@ -71,27 +72,42 @@ export default class AlumniEarnings extends PureComponent {
       },
     ];
     return (
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 35,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name">
-          {" "}
-          <Label value="Alumni Earnings" offset={0} position="bottom" />{" "}
-        </XAxis>
-        <YAxis />
-        <Tooltip />
-        <Legend verticalAlign="top" className="chart-legend" />
-        <Bar dataKey="Alumni Earnings" fill="#8884d8" />
-      </BarChart>
+      <div>
+        <Card className="chart-card">
+          <Card.Title>Alumni Earnings</Card.Title>
+          <Card.Body className="chart-body">
+            <BarChart
+              width={550}
+              height={400}
+              data={data}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 35,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name">
+                {" "}
+                <Label
+                  value="Alumni Earnings"
+                  offset={0}
+                  position="bottom"
+                />{" "}
+              </XAxis>
+              <YAxis />
+              <Tooltip />
+              <Legend verticalAlign="top" className="chart-legend" />
+              <Bar dataKey="Alumni Earnings" fill="#0E9C97" />
+            </BarChart>
+          </Card.Body>
+          <Card.Footer className="chart-text">
+            The graph shows the average earnings an alumni makes 10 years after
+            graduating from this school.
+          </Card.Footer>
+        </Card>
+      </div>
     );
   }
 }

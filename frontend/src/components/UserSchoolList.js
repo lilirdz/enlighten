@@ -30,8 +30,10 @@ export default class UserSchoolList extends React.Component {
             <List>
               {this.props.list.map((x) => (
                 <div>
-                  <ListItem>
-                    <ListItemText>{x.school.name}</ListItemText>
+                  <ListItem className="school-list-item">
+                    <ListItemText>
+                      <a href={"/schools/" + x.school.id}>{x.school.name}</a>
+                    </ListItemText>
 
                     <ListItemSecondaryAction>
                       <IconButton size="small" edge="end">

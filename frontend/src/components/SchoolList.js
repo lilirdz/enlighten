@@ -1,8 +1,7 @@
 import React from "react";
 import SchoolCard from "../components/SchoolCard.js";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
+import Col from "react-bootstrap/Col";
 
 export default class SchoolList extends React.Component {
   render() {
@@ -11,17 +10,17 @@ export default class SchoolList extends React.Component {
 
     return (
       <div>
-        <Container>
-          <Row>
-            {schools.map((school) => (
+        <Row>
+          {schools.map((school) => (
+            <Col md={4}>
               <SchoolCard
                 key={school.id}
                 school={school}
                 routeProps={this.props.routeProps}
               />
-            ))}
-          </Row>
-        </Container>
+            </Col>
+          ))}
+        </Row>
       </div>
     );
   }

@@ -10,9 +10,10 @@ import {
   Legend,
 } from "recharts";
 
+import Card from "react-bootstrap/Card";
+
 export default class Tuition extends PureComponent {
   render() {
-    console.log(this.props.data.school_years);
     const data = [
       {
         name: this.props.data.school_years[0].year,
@@ -71,28 +72,39 @@ export default class Tuition extends PureComponent {
       },
     ];
     return (
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 35,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name">
-          {" "}
-          <Label value="Tuition" offset={0} position="bottom" />{" "}
-        </XAxis>
-        <YAxis />
-        <Tooltip />
-        <Legend verticalAlign="top" className="chart-legend" />
-        <Bar dataKey="Out of State" fill="#8884d8" />
-        <Bar dataKey="In State" fill="#82ca9d" />
-      </BarChart>
+      <div>
+        <Card className="chart-card">
+          <Card.Title>Tuition</Card.Title>
+          <Card.Body className="chart-body">
+            <BarChart
+              width={550}
+              height={400}
+              data={data}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 35,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name">
+                {" "}
+                <Label value="Tuition" offset={0} position="bottom" />{" "}
+              </XAxis>
+              <YAxis />
+              <Tooltip />
+              <Legend verticalAlign="top" className="chart-legend" />
+              <Bar dataKey="Out of State" fill="#8E94F2" />
+              <Bar dataKey="In State" fill="#84D2F6" />
+            </BarChart>
+          </Card.Body>
+          <Card.Footer className="chart-text">
+            Above you can see the cost of tuition depending if you live in the
+            same state as the school or not.
+          </Card.Footer>
+        </Card>
+      </div>
     );
   }
 }

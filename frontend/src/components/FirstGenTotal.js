@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import Card from "react-bootstrap/Card";
 
 export default class FirstGenTotal extends PureComponent {
   render() {
@@ -82,32 +83,48 @@ export default class FirstGenTotal extends PureComponent {
       },
     ];
     return (
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 35,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name">
-          {" "}
-          <Label
-            value="First Gen Total Percentage"
-            offset={0}
-            position="bottom"
-          />{" "}
-        </XAxis>
-        <YAxis />
-        <Tooltip />
-        <Legend verticalAlign="top" className="chart-legend" />
-        <Bar dataKey="First Gen Total Percentage" stackId="a" fill="#8884d8" />
-        <Bar dataKey="Other" stackId="a" fill="#82ca9d" />
-      </BarChart>
+      <div>
+        <Card className="chart-card">
+          <Card.Title>First Gen Total Percentage</Card.Title>
+
+          <Card.Body className="chart-body">
+            <BarChart
+              width={550}
+              height={400}
+              data={data}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 35,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name">
+                {" "}
+                <Label
+                  value="First Gen Total Percentage"
+                  offset={0}
+                  position="bottom"
+                />{" "}
+              </XAxis>
+              <YAxis />
+              <Tooltip />
+              <Legend verticalAlign="top" className="chart-legend" />
+              <Bar
+                dataKey="First Gen Total Percentage"
+                stackId="a"
+                fill="#FFA9A3"
+              />
+              <Bar dataKey="Other" stackId="a" fill="#FED766" />
+            </BarChart>
+          </Card.Body>
+          <Card.Footer className="chart-text">
+            The graph shows the percentage of student at the school who are
+            first generation college students.
+          </Card.Footer>
+        </Card>
+      </div>
     );
   }
 }

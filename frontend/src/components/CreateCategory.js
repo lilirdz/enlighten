@@ -61,7 +61,7 @@ export default class CreateCategory extends React.Component {
               Close
             </Button>
             <Button onClick={this.createCategory} variant="primary">
-              Create!
+              Create Category
             </Button>
           </Modal.Footer>
         </Modal>

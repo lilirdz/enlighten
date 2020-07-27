@@ -78,6 +78,7 @@ export default class ProfileContainer extends React.Component {
               addCategory={this.addCategory}
               routeProps={this.props}
             />
+
             <UserCategoriesContainer
               data={this.state}
               removeSchool={this.removeSchool}

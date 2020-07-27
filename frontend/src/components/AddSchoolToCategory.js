@@ -8,8 +8,10 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
 const style = {
-  background: "#9FA0FF",
+  // background: "#9FA0FF",
+  background: "linear-gradient(45deg, #9FA0FF 30%, #00d4ff 90%)",
   color: "white",
+  marginTop: -65,
   boxShadow: "0 3px 5px 2px rgba(159, 160, 255, 0.5)",
 };
 

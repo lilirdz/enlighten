@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import Card from "react-bootstrap/Card";
 
 export default class CompletionRate extends PureComponent {
   render() {
@@ -93,32 +94,43 @@ export default class CompletionRate extends PureComponent {
       },
     ];
     return (
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 35,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name">
-          {" "}
-          <Label
-            value="First Generation Students Completion Rate"
-            offset={0}
-            position="bottom"
-          />{" "}
-        </XAxis>
-        <YAxis />
-        <Tooltip />
-        <Legend verticalAlign="top" className="chart-legend" />
-        <Bar dataKey="4 Year Completion Rate" fill="#8884d8" />
-        <Bar dataKey="6 Year Completion Rate" fill="#82ca9d" />
-      </BarChart>
+      <div>
+        <Card className="chart-card">
+          <Card.Title>First Gen Completion Rate</Card.Title>
+          <Card.Body className="chart-body">
+            <BarChart
+              width={550}
+              height={400}
+              data={data}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 35,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name">
+                {" "}
+                <Label
+                  value="First Generation Students Completion Rate"
+                  offset={0}
+                  position="bottom"
+                />{" "}
+              </XAxis>
+              <YAxis />
+              <Tooltip />
+              <Legend verticalAlign="top" className="chart-legend" />
+              <Bar dataKey="4 Year Completion Rate" fill="#FFC312" />
+              <Bar dataKey="6 Year Completion Rate" fill="#0E9C97" />
+            </BarChart>
+          </Card.Body>
+          <Card.Footer className="chart-text">
+            The graph shows the number of first generation students who
+            graduated within 4 or 6 years.
+          </Card.Footer>
+        </Card>
+      </div>
     );
   }
 }

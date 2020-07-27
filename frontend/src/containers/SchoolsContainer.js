@@ -2,6 +2,7 @@ import React from "react";
 import SchoolList from "../components/SchoolList.js";
 import SearchContainer from "../containers/SearchContainer.js";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { Container } from "react-bootstrap";
 // import Pagination from "../components/Pagination.js";
 
 const style = {
@@ -45,7 +46,7 @@ export default class SchoolsContainer extends React.Component {
     const searchSchools = this.state.schools.filter((school) =>
       school.name.toLowerCase().includes(this.state.search.toLowerCase())
     );
-    console.log(this.props);
+
     return (
       <div>
         <h2>Explore Colleges and Universities Across the U.S.</h2>
@@ -53,7 +54,9 @@ export default class SchoolsContainer extends React.Component {
         {this.state.loading ? (
           <CircularProgress style={style} />
         ) : (
-          <SchoolList schools={searchSchools} routeProps={this.props} />
+          <Container>
+            <SchoolList schools={searchSchools} routeProps={this.props} />
+          </Container>
         )}
       </div>
     );

@@ -1,6 +1,5 @@
 import React from "react";
 import SchoolBasicInfo from "../components/SchoolBasicInfo";
-// import SchoolData from "../components/SchoolData";
 import AddSchoolToCategory from "../components/AddSchoolToCategory";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import DemoChart from "../components/DemoChart";
@@ -12,6 +11,7 @@ import RetentionRate from "../components/RetentionRate";
 import FirstGenTotal from "../components/FirstGenTotal";
 import FirstGenMedianDebt from "../components/FirstGenMedianDebt";
 import AlumniEarnings from "../components/AlumniEarnings";
+import { Container, Row, Col } from "react-bootstrap";
 
 const style = {
   color: "#9FA0FF",
@@ -50,20 +50,48 @@ export default class IndividualSchoolContainer extends React.Component {
         ) : (
           <div>
             <SchoolBasicInfo school={this.state.school} />
+
             <AddSchoolToCategory
               school={this.state.school}
               routeProps={this.props}
             />
-            <DemoChart data={this.state.school} />
-            <Tuition data={this.state.school} />
-            <CompletionRate data={this.state.school} />
-            <EnrollmentRate data={this.state.school} />
-            <AdmissionsRate data={this.state.school} />
-            <RetentionRate data={this.state.school} />
-            <FirstGenTotal data={this.state.school} />
-            <FirstGenMedianDebt data={this.state.school} />
-            <AlumniEarnings data={this.state.school} />
-            {/* <SchoolData school={this.state.school} /> */}
+            <Container fluid="true">
+              <Row>
+                <Col xs={6}>
+                  <DemoChart data={this.state.school} />
+                </Col>
+                <Col xs={6}>
+                  <Tuition data={this.state.school} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={6}>
+                  <CompletionRate data={this.state.school} />
+                </Col>
+                <Col xs={6}>
+                  <EnrollmentRate data={this.state.school} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={6}>
+                  <AdmissionsRate data={this.state.school} />
+                </Col>
+                <Col xs={6}>
+                  <RetentionRate data={this.state.school} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={4}>
+                  <FirstGenTotal data={this.state.school} />
+                </Col>
+                <Col xs={4}>
+                  <FirstGenMedianDebt data={this.state.school} />
+                </Col>
+                <Col xs={4}>
+                  <AlumniEarnings data={this.state.school} />
+                </Col>
+              </Row>
+            </Container>
           </div>
         )}
       </div>

@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import Card from "react-bootstrap/Card";
 
 export default class RetentionRate extends PureComponent {
   render() {
@@ -60,27 +61,44 @@ export default class RetentionRate extends PureComponent {
       },
     ];
     return (
-      <LineChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 35,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name">
-          {" "}
-          <Label value="Retention Rate" offset={0} position="bottom" />{" "}
-        </XAxis>
-        <YAxis />
-        <Tooltip />
-        <Legend verticalAlign="top" className="chart-legend" />
-        <Line dataKey="Retention Rate" stroke="#8884d8" />
-      </LineChart>
+      <div>
+        <Card className="chart-card">
+          <Card.Title>Retention Rate</Card.Title>
+          <Card.Body className="chart-body">
+            <LineChart
+              width={550}
+              height={360}
+              data={data}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 35,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name">
+                {" "}
+                <Label
+                  value="Retention Rate"
+                  offset={0}
+                  position="bottom"
+                />{" "}
+              </XAxis>
+              <YAxis />
+              <Tooltip />
+              <Legend verticalAlign="top" className="chart-legend" />
+              <Line dataKey="Retention Rate" stroke="#F87575" />
+            </LineChart>
+          </Card.Body>
+          <Card.Footer className="chart-text">
+            The graph shows the retention rates for students. A higher retention
+            rate means more students are choosing to stay at that school.
+            Various reasons include good financial aid, good student life, good
+            opportunities, etc.
+          </Card.Footer>
+        </Card>
+      </div>
     );
   }
 }

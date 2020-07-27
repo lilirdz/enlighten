@@ -36,14 +36,25 @@ body {
   font-family: "Poppins", sans-serif;
   text-align: center;
 }
+
+a,
+a:hover {
+  color: black;
+}
 .school-details {
-  background-image: url(./images/university.jpg);
+  /* background-image: url(./images/university.jpg); */
+  background-color: #8e94f2;
   background-size: 100%;
   background-position: center;
   background-position-y: -28em;
   background-repeat: no-repeat;
   text-align: center;
-  height: 26em;
+  height: 24em;
+}
+
+.school-text {
+  margin-top: 40px;
+  color: white;
 }
 
 .add-btn {
@@ -56,10 +67,8 @@ body {
 
 .school-card {
   width: 18rem;
-  height: 24rem;
-  margin: 3em;
-  margin-left: -30px;
-  margin-right: 2px;
+  min-height: 26rem;
+  margin: 15px auto;
 }
 
 .user-school-card {
@@ -67,11 +76,24 @@ body {
 }
 
 .user-category-card {
-  width: 26rem;
+  /* min-width: 18rem; */
+  margin: 25px auto;
+}
+
+.categories-row {
+  width: 1400px;
+  margin-right: -95px;
 }
 
 .delete-icon {
   color: white;
+}
+
+.categories-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: 250px;
 }
 
 .delete-category-btn,
@@ -92,4 +114,27 @@ body {
   background-color: white;
   color: #0e9c97;
   border-color: #0e9c97;
+}
+
+.school-list-item {
+  border: 1px solid lightgrey;
+  margin-bottom: 8px;
+}
+
+.chart-card {
+  width: 38rem;
+  height: 32rem;
+  margin: 25px auto;
+
+  /* padding-right: 10em; */
+  /* text-align: center; */
+}
+
+.chart-text {
+  background-color: #8e94f2;
+  color: white;
+}
+
+.chart-body {
+  margin-top: -26px;
 }

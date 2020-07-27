@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginContainer from "./containers/LoginContainer";
 import SignUpContainer from "./containers/SignUpContainer";
+import HomeContainer from "./containers/HomeContainer";
 import SchoolsContainer from "./containers/SchoolsContainer.js";
 import IndividualSchoolContainer from "./containers/IndividualSchoolContainer.js";
 import ProfileContainer from "./containers/ProfileContainer.js";
@@ -104,7 +105,7 @@ class App extends React.Component {
               <Route
                 exact
                 path="/"
-                render={(routeProps) => <ProfileContainer {...routeProps} />}
+                render={(routeProps) => <HomeContainer {...routeProps} />}
               />
               <Route
                 exact

@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import Card from "react-bootstrap/Card";
 
 export default class EnrollmentRate extends PureComponent {
   render() {
@@ -60,27 +61,41 @@ export default class EnrollmentRate extends PureComponent {
       },
     ];
     return (
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 35,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name">
-          {" "}
-          <Label value="Enrollment Rate" offset={0} position="bottom" />{" "}
-        </XAxis>
-        <YAxis />
-        <Tooltip />
-        <Legend verticalAlign="top" className="chart-legend" />
-        <Bar dataKey="Enrollment Rate" fill="#8884d8" />
-      </BarChart>
+      <div>
+        <Card className="chart-card">
+          <Card.Title>Enrollment Rate</Card.Title>
+          <Card.Body className="chart-body">
+            <BarChart
+              width={550}
+              height={400}
+              data={data}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 35,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name">
+                {" "}
+                <Label
+                  value="Enrollment Rate"
+                  offset={0}
+                  position="bottom"
+                />{" "}
+              </XAxis>
+              <YAxis />
+              <Tooltip />
+              <Legend verticalAlign="top" className="chart-legend" />
+              <Bar dataKey="Enrollment Rate" fill="#42BFDD" />
+            </BarChart>
+          </Card.Body>
+          <Card.Footer className="chart-text">
+            The graph shows the total number of student attending the school.
+          </Card.Footer>
+        </Card>
+      </div>
     );
   }
 }
