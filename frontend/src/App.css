@@ -1,23 +1,18 @@
-.App {
-  text-align: center;
-  /* font-family: "Questrial", sans-serif; */
-  /* font-family: "Heebo", sans-serif; */
-  /* font-family: "Hind Siliguri", sans-serif; */
-  font-family: "Poppins", sans-serif;
-}
+/* .App { */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* font-family: "Questrial", sans-serif; */
+/* font-family: "Heebo", sans-serif; */
+/* font-family: "Hind Siliguri", sans-serif; */
+/* font-family: "Poppins", sans-serif; */
+/* } */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -26,19 +21,20 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */
+
+body {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 .school-details {
   background-image: url(./images/university.jpg);
@@ -47,7 +43,6 @@
   background-position-y: -28em;
   background-repeat: no-repeat;
   text-align: center;
-  /* color: red; */
   height: 26em;
 }
 
@@ -65,4 +60,36 @@
   margin: 3em;
   margin-left: -30px;
   margin-right: 2px;
+}
+
+.user-school-card {
+  width: 10rem;
+}
+
+.user-category-card {
+  width: 26rem;
+}
+
+.delete-icon {
+  color: white;
+}
+
+.delete-category-btn,
+.delete-category-btn:hover {
+  margin-top: 12px;
+  background-color: #e71d36;
+  border-color: transparent;
+  color: white;
+  /* box-shadow: 0 3px 5px 2px rgba(231, 29, 54, 0.3); */
+}
+
+.create-category-btn {
+  background-color: #0e9c97;
+  border-color: transparent;
+}
+
+.create-category-btn:hover {
+  background-color: white;
+  color: #0e9c97;
+  border-color: #0e9c97;
 }

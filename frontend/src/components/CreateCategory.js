@@ -36,7 +36,9 @@ export default class CreateCategory extends React.Component {
   render() {
     return (
       <div>
-        <Button onClick={this.handleModal}>Create a New Category</Button>
+        <Button className="create-category-btn" onClick={this.handleModal}>
+          Create a New Category
+        </Button>
         <Modal show={this.state.show}>
           <Modal.Header closeButton onClick={() => this.handleModal()}>
             <Modal.Title>Create A Category</Modal.Title>

@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
 import EditableLabel from "react-inline-editing";
 import UserSchoolList from "../components/UserSchoolList";
 
@@ -18,6 +20,7 @@ export default class UserCategoryCard extends React.Component {
 
   deleteCategory = (e) => {
     const id = e.target.id;
+    console.log(id);
     fetch(`http://localhost:3000/api/v1/categories/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${localStorage.token}` },
@@ -53,7 +56,7 @@ export default class UserCategoryCard extends React.Component {
 
     return (
       <div>
-        <Card>
+        <Card className="user-category-card">
           <Card.Body>
             <Card.Title>
               <EditableLabel
@@ -74,7 +77,14 @@ export default class UserCategoryCard extends React.Component {
               list={this.filteredSchools()}
               removeSchool={this.props.removeSchool}
             />
-            <Button id={category.id} onClick={this.deleteCategory}>
+            <Button
+              className="delete-category-btn"
+              id={category.id}
+              onClick={this.deleteCategory}
+            >
+              <IconButton size="small">
+                <DeleteIcon className="delete-icon" />
+              </IconButton>
               Delete Category
             </Button>
           </Card.Body>

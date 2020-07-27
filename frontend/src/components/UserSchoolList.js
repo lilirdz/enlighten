@@ -1,9 +1,11 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Table from "react-bootstrap/Table";
-// import Button from "react-bootstrap/Button";
 import IconButton from "@material-ui/core/IconButton";
 import ClearIcon from "@material-ui/icons/Clear";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import ListItemText from "@material-ui/core/ListItemText";
 
 export default class UserSchoolList extends React.Component {
   deleteSchool = (e) => {
@@ -23,41 +25,27 @@ export default class UserSchoolList extends React.Component {
     // console.log(this.props.category.id);
     return (
       <div>
-        <Card>
+        <Card className="user-schools-card">
           <Card.Body>
-            <Table>
-              <thead>
-                <tr>
-                  <th>School Name</th>
-                  <th>School City</th>
-                  <th>School State</th>
-                  <th>Delete School</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.props.list.map((x) => (
-                  <div>
-                    <tr>
-                      <td>{x.school.name}</td>
-                      <td>{x.school.city}</td>
-                      <td>{x.school.state}</td>
-                      <td>
-                        {/* <Button id={x.id} onClick={this.deleteSchool}>
-                          Delete School
-                        </Button> */}
-                        <IconButton size="small">
-                          <ClearIcon
-                            id={x.id}
-                            onClick={this.deleteSchool}
-                            fontSize="small"
-                          />
-                        </IconButton>
-                      </td>
-                    </tr>
-                  </div>
-                ))}
-              </tbody>
-            </Table>
+            <List>
+              {this.props.list.map((x) => (
+                <div>
+                  <ListItem>
+                    <ListItemText>{x.school.name}</ListItemText>
+
+                    <ListItemSecondaryAction>
+                      <IconButton size="small" edge="end">
+                        <ClearIcon
+                          id={x.id}
+                          onClick={this.deleteSchool}
+                          fontSize="small"
+                        />
+                      </IconButton>
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                </div>
+              ))}
+            </List>
           </Card.Body>
         </Card>
       </div>

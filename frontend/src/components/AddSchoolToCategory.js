@@ -28,7 +28,6 @@ export default class AddSchoolToCategory extends React.Component {
   };
 
   handleSaveClick = () => {
-    console.log("clicked!");
     this.setState({
       open: true,
     });
