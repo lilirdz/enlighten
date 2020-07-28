@@ -55,7 +55,11 @@ export default class SchoolsContainer extends React.Component {
           <CircularProgress style={style} />
         ) : (
           <Container>
-            <SchoolList schools={searchSchools} routeProps={this.props} />
+            <SchoolList
+              colleges={this.state.schools}
+              schools={searchSchools}
+              routeProps={this.props}
+            />
           </Container>
         )}
       </div>

@@ -6,12 +6,6 @@
 /* font-family: "Poppins", sans-serif; */
 /* } */
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
 /* .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,31 +17,25 @@
   color: white;
 } */
 
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 body {
   font-family: "Poppins", sans-serif;
   text-align: center;
+  max-width: 1500px;
+  margin: auto;
 }
 
 a,
 a:hover {
   color: black;
+  text-decoration: none;
 }
 .school-details {
   /* background-image: url(./images/university.jpg); */
   background-color: #8e94f2;
   background-size: 100%;
-  background-position: center;
+  /* background-position: center;
   background-position-y: -28em;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   text-align: center;
   height: 24em;
 }
@@ -69,20 +57,26 @@ a:hover {
   width: 18rem;
   min-height: 26rem;
   margin: 15px auto;
+  box-shadow: 0px 4px 10px rgba(25, 4, 69, 0.1);
 }
 
-.user-school-card {
-  width: 10rem;
+.user-schools-card {
+  /* width: 10rem; */
+  border: transparent;
 }
 
 .user-category-card {
   /* min-width: 18rem; */
   margin: 25px auto;
+  border-top-color: #86b2f3;
+  border-top-width: 12px;
+  box-shadow: 0px 4px 10px rgba(25, 4, 69, 0.1);
 }
 
 .categories-row {
-  width: 1400px;
-  margin-right: -95px;
+  width: 100%;
+  margin: auto;
+  /* margin-right: -95px; */
 }
 
 .delete-icon {
@@ -93,41 +87,40 @@ a:hover {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  margin-left: 250px;
+  /* margin-left: 250px; */
 }
 
 .delete-category-btn,
 .delete-category-btn:hover {
   margin-top: 12px;
-  background-color: #e71d36;
+  background-color: #f47457;
   border-color: transparent;
   color: white;
   /* box-shadow: 0 3px 5px 2px rgba(231, 29, 54, 0.3); */
 }
 
 .create-category-btn {
-  background-color: #0e9c97;
+  background-color: #54bfa1;
   border-color: transparent;
 }
 
 .create-category-btn:hover {
   background-color: white;
-  color: #0e9c97;
-  border-color: #0e9c97;
+  color: #54bfa1;
+  border-color: #54bfa1;
 }
 
 .school-list-item {
   border: 1px solid lightgrey;
+  border-left: 8px solid #8e94f2;
   margin-bottom: 8px;
+  background-color: white;
 }
 
 .chart-card {
   width: 38rem;
   height: 32rem;
   margin: 25px auto;
-
-  /* padding-right: 10em; */
-  /* text-align: center; */
 }
 
 .chart-text {
@@ -137,4 +130,21 @@ a:hover {
 
 .chart-body {
   margin-top: -26px;
+}
+
+.profile-header {
+  margin-top: 12px;
+  text-decoration: underline;
+  text-decoration-color: #f7cc7e;
+}
+
+.logout-btn {
+  background-color: #8e94f2;
+  border-color: transparent;
+}
+
+.user-welcome {
+  margin-top: 80px;
+  margin-left: -200px;
+  float: left;
 }

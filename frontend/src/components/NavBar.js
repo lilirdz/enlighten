@@ -14,11 +14,11 @@ class NavBar extends React.Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={Link} to="/">
-              Home
-            </Nav.Link>
             <Nav.Link as={Link} to="/schools">
               Explore Schools
+            </Nav.Link>
+            <Nav.Link as={Link} to="/compare-schools">
+              Compare Schools
             </Nav.Link>
             <Nav.Link as={Link} to="/resources">
               Resources
@@ -29,14 +29,14 @@ class NavBar extends React.Component {
           </Nav>
           <Nav className="justify-content-end">
             {!this.props.loggedIn ? (
-              <Button as={Link} to="/login" className="edit-btn">
+              <Button as={Link} to="/login" className="login-btn">
                 Get Started
               </Button>
             ) : (
               <Button
                 as={Link}
                 to="/login"
-                className="delete-btn"
+                className="logout-btn"
                 onClick={this.props.logout}
               >
                 Log Out

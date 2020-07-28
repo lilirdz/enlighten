@@ -1,7 +1,8 @@
 import React from "react";
-import Chongo from "../images/Chongo.png";
+import Students from "../images/students.jpg";
 import CreateCategory from "../components/CreateCategory";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { Container, Row, Col } from "react-bootstrap";
 
 const style = {
   color: "#9FA0FF",
@@ -16,12 +17,31 @@ export default class UserInfo extends React.Component {
           <CircularProgress style={style} />
         ) : (
           <div>
-            <img src={Chongo} alt="user-pic" />
-            <h2>Hi, {this.props.details.name}</h2>
-            <CreateCategory
-              addCategory={this.props.addCategory}
-              routeProps={this.props.routeProps}
-            />
+            <Container fluid="true">
+              <Row>
+                <Col xs={8}>
+                  <img src={Students} height="300x300" alt="user-pic" />
+                </Col>
+
+                <Col xs={3}>
+                  <div className="user-welcome">
+                    <h2>Hi, {this.props.details.name}!</h2>
+
+                    <CreateCategory
+                      addCategory={this.props.addCategory}
+                      routeProps={this.props.routeProps}
+                    />
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <h2 className="profile-header">
+                    Check Out Your Prospective Schools
+                  </h2>
+                </Col>
+              </Row>
+            </Container>
           </div>
         )}
       </div>

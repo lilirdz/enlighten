@@ -1,14 +1,13 @@
 import React from "react";
-// import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginContainer from "./containers/LoginContainer";
 import SignUpContainer from "./containers/SignUpContainer";
-import HomeContainer from "./containers/HomeContainer";
 import SchoolsContainer from "./containers/SchoolsContainer.js";
 import IndividualSchoolContainer from "./containers/IndividualSchoolContainer.js";
 import ProfileContainer from "./containers/ProfileContainer.js";
 import ResourcesContainer from "./containers/ResourcesContainer.js";
+import CompareSchoolsContainer from "./containers/CompareSchools.js";
 import NavBar from "./components/NavBar";
 
 class App extends React.Component {
@@ -88,6 +87,13 @@ class App extends React.Component {
               />
               <Route
                 exact
+                path="/compare-schools"
+                render={(routeProps) => (
+                  <CompareSchoolsContainer {...routeProps} />
+                )}
+              />
+              <Route
+                exact
                 path="/resources"
                 render={(routeProps) => <ResourcesContainer {...routeProps} />}
               />
@@ -105,7 +111,7 @@ class App extends React.Component {
               <Route
                 exact
                 path="/"
-                render={(routeProps) => <HomeContainer {...routeProps} />}
+                render={(routeProps) => <ProfileContainer {...routeProps} />}
               />
               <Route
                 exact

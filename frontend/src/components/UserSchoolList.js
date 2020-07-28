@@ -6,6 +6,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 
 export default class UserSchoolList extends React.Component {
   deleteSchool = (e) => {
@@ -23,32 +24,52 @@ export default class UserSchoolList extends React.Component {
   render() {
     // console.log(this.props.list.data.schools);
     // console.log(this.props.category.id);
+
     return (
       <div>
         <Card className="user-schools-card">
-          <Card.Body>
-            <List>
-              {this.props.list.map((x) => (
-                <div>
-                  <ListItem className="school-list-item">
-                    <ListItemText>
-                      <a href={"/schools/" + x.school.id}>{x.school.name}</a>
-                    </ListItemText>
+          <Droppable droppableId={this.props.category.id.toString()}>
+            {(provided) => (
+              <Card.Body>
+                <List innerRef={provided.innerRef} {...provided.droppableProps}>
+                  {this.props.list.map((x, index) => (
+                    <div>
+                      <Draggable
+                        draggableId={x.school.id.toString()}
+                        index={index}
+                      >
+                        {(provided) => (
+                          <ListItem
+                            className="school-list-item"
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            innerRef={provided.innerRef}
+                          >
+                            <ListItemText>
+                              <a href={"/schools/" + x.school.id}>
+                                {x.school.name}
+                              </a>
+                            </ListItemText>
 
-                    <ListItemSecondaryAction>
-                      <IconButton size="small" edge="end">
-                        <ClearIcon
-                          id={x.id}
-                          onClick={this.deleteSchool}
-                          fontSize="small"
-                        />
-                      </IconButton>
-                    </ListItemSecondaryAction>
-                  </ListItem>
-                </div>
-              ))}
-            </List>
-          </Card.Body>
+                            <ListItemSecondaryAction>
+                              <IconButton size="small" edge="end">
+                                <ClearIcon
+                                  id={x.id}
+                                  onClick={this.deleteSchool}
+                                  fontSize="small"
+                                />
+                              </IconButton>
+                            </ListItemSecondaryAction>
+                          </ListItem>
+                        )}
+                      </Draggable>
+                    </div>
+                  ))}
+                  {provided.placeholder}
+                </List>
+              </Card.Body>
+            )}
+          </Droppable>
         </Card>
       </div>
     );

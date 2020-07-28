@@ -1,6 +1,7 @@
 import React from "react";
 import UserInfo from "../components/UserInfo";
 import UserCategoriesContainer from "./UserCategoriesContainer";
+import Student from "../images/student.jpg";
 
 export default class ProfileContainer extends React.Component {
   state = {
@@ -70,6 +71,7 @@ export default class ProfileContainer extends React.Component {
               addCategory={this.addCategory}
               routeProps={this.props}
             />
+            <img src={Student} alt="student studying" height="450x450" />
           </div>
         ) : (
           <div>
@@ -85,6 +87,8 @@ export default class ProfileContainer extends React.Component {
               removeCategory={this.removeCategory}
               routeProps={this.props}
             />
+
+            <img src={Student} alt="student studying" height="450x450" />
           </div>
         )}
       </div>

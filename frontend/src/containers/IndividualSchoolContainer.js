@@ -81,13 +81,13 @@ export default class IndividualSchoolContainer extends React.Component {
                 </Col>
               </Row>
               <Row>
-                <Col xs={4}>
+                <Col xs={6}>
                   <FirstGenTotal data={this.state.school} />
                 </Col>
-                <Col xs={4}>
+                <Col xs={6}>
                   <FirstGenMedianDebt data={this.state.school} />
                 </Col>
-                <Col xs={4}>
+                <Col xs={6}>
                   <AlumniEarnings data={this.state.school} />
                 </Col>
               </Row>
