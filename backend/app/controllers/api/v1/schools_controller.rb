@@ -3,7 +3,7 @@ class Api::V1::SchoolsController < ApplicationController
     def index 
       # @schools = School.page(params[:page])
       #   render json: @schools
-      render json: School.all
+      render json: School.order(:id).all
     end
 
     def show

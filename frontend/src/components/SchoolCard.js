@@ -16,7 +16,11 @@ export default class SchoolCard extends React.Component {
             <Card.Text>
               {school.city}, {school.state}
             </Card.Text>
-            <Button as={Link} to={`schools/${school.id}`}>
+            <Button
+              as={Link}
+              to={`schools/${school.id}`}
+              className="learn-more"
+            >
               Learn More
             </Button>
           </Card.Body>

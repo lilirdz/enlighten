@@ -24,6 +24,11 @@ body {
   margin: auto;
 }
 
+.navbar {
+  color: white;
+  width: 100%;
+}
+
 a,
 a:hover {
   color: black;
@@ -62,15 +67,20 @@ a:hover {
 
 .user-schools-card {
   /* width: 10rem; */
+  background-color: transparent;
   border: transparent;
 }
 
 .user-category-card {
   /* min-width: 18rem; */
   margin: 25px auto;
-  border-top-color: #86b2f3;
-  border-top-width: 12px;
+  /* border-top-color: #86b2f3; */
+  /* border-top-width: 12px; */
   box-shadow: 0px 4px 10px rgba(25, 4, 69, 0.1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  padding-top: 7rem;
 }
 
 .categories-row {
@@ -111,10 +121,11 @@ a:hover {
 }
 
 .school-list-item {
-  border: 1px solid lightgrey;
+  /* border: 1px solid lightgrey; */
   border-left: 8px solid #8e94f2;
   margin-bottom: 8px;
   background-color: white;
+  box-shadow: 0px 4px 10px rgba(25, 4, 69, 0.1);
 }
 
 .chart-card {
@@ -143,8 +154,72 @@ a:hover {
   border-color: transparent;
 }
 
+.logout-btn:hover {
+  background-color: #44beff;
+  border-color: transparent;
+}
+
 .user-welcome {
   margin-top: 80px;
   margin-left: -200px;
   float: left;
+}
+
+.compare-schools {
+  background-color: #8e94f2;
+  color: white;
+  border: none;
+}
+
+.learn-more,
+.learn-more:hover {
+  background-color: #54bfa1;
+  color: white;
+  border-color: transparent;
+}
+
+.add-school-btn,
+.add-school-btn:hover {
+  background-color: #54bfa1;
+  color: white;
+  border-color: transparent;
+}
+
+.add-school {
+  width: 100%;
+  background-color: white;
+  color: #8e94f2;
+  border-color: transparent;
+  box-shadow: 0px 4px 10px rgba(25, 4, 69, 0.15);
+}
+
+.add-school:hover {
+  background-color: #8e94f2;
+  color: white;
+  border-color: transparent;
+  box-shadow: 0px 4px 10px rgba(25, 4, 69, 0.15);
+}
+
+.category-name-header {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 800px;
+  height: 700px;
+  transform: translate(-50%, -86%);
+  padding-bottom: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #4e54c8 20%, #8f94fb 70%);
+  /* background-color: #86b2f3; */
+}
+
+.state-avatar {
+  width: 2px;
+  height: 2px;
+  background-color: linear-gradient(45deg, #9fa0ff 30%, #00d4ff 90%);
+  color: white;
 }

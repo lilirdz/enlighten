@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditableLabel from "react-inline-editing";
 import UserSchoolList from "../components/UserSchoolList";
+import AddIcon from "@material-ui/icons/Add";
 // import {Droppable} from "react-beautiful-dnd"
 
 export default class UserCategoryCard extends React.Component {
@@ -61,7 +61,7 @@ export default class UserCategoryCard extends React.Component {
         {/* {(provided) => ( */}
         <Card className="user-category-card">
           <Card.Body>
-            <Card.Title>
+            <Card.Title className="category-name-header">
               <EditableLabel
                 text={this.state.name}
                 labelClassName="myLabelClass"
@@ -69,12 +69,15 @@ export default class UserCategoryCard extends React.Component {
                 inputWidth="200px"
                 inputHeight="25px"
                 inputMaxLength="50"
-                labelFontWeight="bold"
-                inputFontWeight="bold"
                 onChange={(e) => this.setState({ name: e.target.value })}
                 onFocusOut={this.editCategory}
               />
             </Card.Title>
+            <a href="/schools">
+              <Button className="add-school">
+                <AddIcon fontSize="medium"></AddIcon>
+              </Button>
+            </a>
             <UserSchoolList
               category={category}
               list={this.filteredSchools()}
@@ -85,9 +88,7 @@ export default class UserCategoryCard extends React.Component {
               id={category.id}
               onClick={this.deleteCategory}
             >
-              <IconButton size="small">
-                <DeleteIcon className="delete-icon" />
-              </IconButton>
+              <DeleteIcon size="small" className="delete-icon" />
               Delete Category
             </Button>
           </Card.Body>

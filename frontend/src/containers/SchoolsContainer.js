@@ -3,7 +3,6 @@ import SchoolList from "../components/SchoolList.js";
 import SearchContainer from "../containers/SearchContainer.js";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Container } from "react-bootstrap";
-// import Pagination from "../components/Pagination.js";
 
 const style = {
   color: "#9FA0FF",
@@ -55,11 +54,7 @@ export default class SchoolsContainer extends React.Component {
           <CircularProgress style={style} />
         ) : (
           <Container>
-            <SchoolList
-              colleges={this.state.schools}
-              schools={searchSchools}
-              routeProps={this.props}
-            />
+            <SchoolList schools={searchSchools} routeProps={this.props} />
           </Container>
         )}
       </div>

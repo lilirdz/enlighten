@@ -87,7 +87,6 @@ export default class AddSchoolToCategory extends React.Component {
 
     return (
       <div>
-        {/* <Button onClick={this.handleModal}>Add School</Button> */}
         <Fab
           style={style}
           aria-label="add"
@@ -124,7 +123,7 @@ export default class AddSchoolToCategory extends React.Component {
             <Button variant="secondary" onClick={this.handleModal}>
               Close
             </Button>
-            <Button onClick={this.saveSchool} className="edit-btn">
+            <Button onClick={this.saveSchool} className="add-school-btn">
               Add School
             </Button>
           </Modal.Footer>

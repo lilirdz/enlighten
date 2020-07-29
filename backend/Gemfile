@@ -48,4 +48,3 @@ gem "active_model_serializers", "~> 0.10.10"
 
 gem 'kaminari'
 
-gem 'friendly_id', '~> 5.2.4'

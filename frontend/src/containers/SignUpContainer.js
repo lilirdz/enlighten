@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Link from "react-router-dom/Link";
 
 export default class SignUpContainer extends React.Component {
   state = {
@@ -108,6 +109,9 @@ export default class SignUpContainer extends React.Component {
           >
             Sign Up
           </Button>
+          <Form.Text className="text-muted" as={Link} to={"/login"}>
+            Already have an account? Click here to log in.
+          </Form.Text>
         </Form>
         {this.state.error ? <p className="error">{this.state.error}</p> : null}
       </div>
