@@ -217,9 +217,32 @@ a:hover {
   /* background-color: #86b2f3; */
 }
 
-.state-avatar {
-  width: 2px;
-  height: 2px;
-  background-color: linear-gradient(45deg, #9fa0ff 30%, #00d4ff 90%);
+.resource-category-name {
+  /* background-color: #f87575;
+  color: white; */
+  text-decoration: underline;
+  text-decoration-color: #f87575;
+}
+
+.resource-card {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 1rem;
+  margin: 25px auto;
+
+  box-shadow: 0px 4px 10px rgba(25, 4, 69, 0.1);
+}
+
+.resource-name {
+  background-color: #f87575;
+  color: white;
+}
+
+.resource-link,
+.resource-link:hover {
+  color: #f87575;
+}
+
+.school-url-link {
   color: white;
 }

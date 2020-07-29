@@ -37,7 +37,7 @@ export default class UserInfo extends React.Component {
               <Row>
                 <Col>
                   <h2 className="profile-header">
-                    Check Out Your Prospective Schools
+                    <strong>Check Out Your Prospective Schools</strong>
                   </h2>
                 </Col>
               </Row>

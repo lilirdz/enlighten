@@ -8,7 +8,9 @@ export default function SchoolBasicInfo(props) {
     <div>
       <Jumbotron className="school-details">
         <div className="school-text">
-          <h1>{school.name}</h1>
+          <h1>
+            <strong>{school.name}</strong>
+          </h1>
           <h4>
             {school.city}, {school.state}
           </h4>
@@ -22,6 +24,7 @@ export default function SchoolBasicInfo(props) {
                   ? school.school_url
                   : "https://" + school.school_url
               }
+              className="school-url-link"
             >
               {school.school_url}
             </a>

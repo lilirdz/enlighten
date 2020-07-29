@@ -5,7 +5,9 @@ export default function CompareSchools() {
   return (
     <div>
       <Jumbotron className="compare-schools">
-        <h2>Use This Table Below to Compare Schools</h2>
+        <h2>
+          <strong>Use This Table Below to Compare Schools</strong>
+        </h2>
       </Jumbotron>
       <div
         class="collegeai collegeai-session-data"

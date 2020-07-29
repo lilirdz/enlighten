@@ -48,7 +48,9 @@ export default class SchoolsContainer extends React.Component {
 
     return (
       <div>
-        <h2>Explore Colleges and Universities Across the U.S.</h2>
+        <h2>
+          <strong>Explore Colleges and Universities Across the U.S.</strong>
+        </h2>
         <SearchContainer handleSearch={this.handleSearch} />
         {this.state.loading ? (
           <CircularProgress style={style} />

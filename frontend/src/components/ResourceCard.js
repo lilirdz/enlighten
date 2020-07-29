@@ -6,14 +6,16 @@ export default class ResourceCard extends React.Component {
     const { resource } = this.props;
     return (
       <div>
-        <Card>
+        <Card className="resource-card">
           <Card.Body>
-            <Card.Title>{resource.name}</Card.Title>
+            <Card.Text className="resource-name">{resource.name}</Card.Text>
+
             <Card.Text>{resource.about_snippet}</Card.Text>
             <Card.Link
               rel="noopener noreferrer"
               target="_blank"
               href={resource.organization_url}
+              className="resource-link"
             >
               Learn More
             </Card.Link>

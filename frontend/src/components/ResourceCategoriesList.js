@@ -1,5 +1,6 @@
 import React from "react";
 import ResourcesList from "./ResourcesList";
+import { Container } from "react-bootstrap";
 
 export default function ResourceCategoriesList(props) {
   let { categories } = props;
@@ -9,8 +10,12 @@ export default function ResourceCategoriesList(props) {
     <div>
       {categories.map((category) => (
         <div>
-          <h3>{category.name}</h3>
-          <ResourcesList key={category.id} details={category} />
+          <Container fluid="true">
+            <h3 className="resource-category-name">
+              <strong>{category.name}</strong>
+            </h3>
+            <ResourcesList key={category.id} details={category} />
+          </Container>
         </div>
       ))}
     </div>
