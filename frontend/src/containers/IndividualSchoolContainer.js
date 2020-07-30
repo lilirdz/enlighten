@@ -1,7 +1,7 @@
 import React from "react";
 import SchoolBasicInfo from "../components/SchoolBasicInfo";
 import AddSchoolToCategory from "../components/AddSchoolToCategory";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import BookGif from "../images/book.gif";
 import DemoChart from "../components/DemoChart";
 import Tuition from "../components/Tuition";
 import CompletionRate from "../components/CompletionRate";
@@ -12,11 +12,6 @@ import FirstGenTotal from "../components/FirstGenTotal";
 import FirstGenMedianDebt from "../components/FirstGenMedianDebt";
 import AlumniEarnings from "../components/AlumniEarnings";
 import { Container, Row, Col } from "react-bootstrap";
-
-const style = {
-  color: "#9FA0FF",
-  marginTop: 300,
-};
 
 export default class IndividualSchoolContainer extends React.Component {
   state = {
@@ -46,7 +41,8 @@ export default class IndividualSchoolContainer extends React.Component {
     return (
       <div>
         {this.state.school === null ? (
-          <CircularProgress style={style} />
+          // <CircularProgress style={style} />
+          <img src={BookGif} alt="book-gif" style={{ marginTop: 150 }} />
         ) : (
           <div>
             <SchoolBasicInfo school={this.state.school} />

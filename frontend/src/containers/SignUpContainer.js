@@ -3,6 +3,8 @@ import "../App.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Link from "react-router-dom/Link";
+import Graduates from "../images/graduates.jpg";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default class SignUpContainer extends React.Component {
   state = {
@@ -27,8 +29,15 @@ export default class SignUpContainer extends React.Component {
       }),
     })
       .then((res) => res.json())
-      .then(() => {
-        this.handleLogin();
+      .then((response) => {
+        console.log(response);
+        if (response.user) {
+          this.handleLogin();
+        } else {
+          this.setState({
+            error: response[0],
+          });
+        }
       });
   };
 
@@ -69,51 +78,71 @@ export default class SignUpContainer extends React.Component {
   render() {
     return (
       <div>
-        <Form>
-          <h3>Sign Up</h3>
-          <Form.Group controlId="formBasicName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              onChange={this.handleInput}
-              type="name"
-              name="name"
-              placeholder="Enter Name"
-            />
-          </Form.Group>
+        <Container fluid="true">
+          <Row>
+            <Col md={6}>
+              <img src={Graduates} alt="college graduates" height="550x550" />
 
-          <Form.Group controlId="formBasicUsername">
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              onChange={this.handleInput}
-              type="username"
-              name="username"
-              placeholder="Enter Username"
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              onChange={this.handleInput}
-              name="password"
-              type="password"
-              placeholder="Password"
-            />
-          </Form.Group>
+              <h2 className="landing-pg-text">
+                First Generation College Bound Students <br />
+                Find the Right School For You
+              </h2>
+            </Col>
+            <Col md={6}>
+              <Form className="credentials-form">
+                <div className="form-text">
+                  <h3>Sign Up</h3>
+                  <Form.Group controlId="formBasicName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      onChange={this.handleInput}
+                      type="name"
+                      name="name"
+                      placeholder="Enter Name"
+                      className="creds-label"
+                    />
+                  </Form.Group>
 
-          <Button
-            onClick={this.handleSignUp}
-            className="edit-btn"
-            style={{ width: "100%" }}
-            variant="primary"
-            type="submit"
-          >
-            Sign Up
-          </Button>
-          <Form.Text className="text-muted" as={Link} to={"/login"}>
-            Already have an account? Click here to log in.
-          </Form.Text>
-        </Form>
-        {this.state.error ? <p className="error">{this.state.error}</p> : null}
+                  <Form.Group controlId="formBasicUsername">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control
+                      onChange={this.handleInput}
+                      type="username"
+                      name="username"
+                      placeholder="Enter Username"
+                      className="creds-label"
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      onChange={this.handleInput}
+                      name="password"
+                      type="password"
+                      placeholder="Password"
+                      className="creds-label"
+                    />
+                  </Form.Group>
+
+                  <Button
+                    onClick={this.handleSignUp}
+                    className="login-btn"
+                    type="submit"
+                  >
+                    Sign Up
+                  </Button>
+                  {this.state.error ? (
+                    <p className="error">{this.state.error}</p>
+                  ) : null}
+
+                  <Form.Text className="text-muted" as={Link} to={"/login"}>
+                    Already have an account? Click here to log in.
+                  </Form.Text>
+                </div>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

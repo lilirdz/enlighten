@@ -36,9 +36,15 @@ export default class UserInfo extends React.Component {
               </Row>
               <Row>
                 <Col>
-                  <h2 className="profile-header">
-                    <strong>Check Out Your Prospective Schools</strong>
-                  </h2>
+                  {this.props.categories.length !== 0 ? (
+                    <h2 className="profile-header">
+                      <strong>Check Out Your Prospective Schools</strong>
+                    </h2>
+                  ) : (
+                    <h2 className="profile-header">
+                      <strong>Let's Add Some Categories!</strong>
+                    </h2>
+                  )}
                 </Col>
               </Row>
             </Container>

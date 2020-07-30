@@ -10,6 +10,7 @@ class Api::V1::AuthController < ApplicationController
             render json: {username: user.username, token: encode_token({user_id: user.id}),user_id: user.id }
         else
             render json: {error: "invalid username or password"}
+            
         end
     end
 

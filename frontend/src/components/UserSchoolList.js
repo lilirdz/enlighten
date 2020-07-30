@@ -7,7 +7,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
-// import { Droppable, Draggable } from "react-beautiful-dnd";
 
 const style = {
   width: 20,
@@ -33,29 +32,15 @@ export default class UserSchoolList extends React.Component {
   };
   render() {
     // console.log(this.props.list.data.schools);
-    // console.log(this.props.category.id);
 
     return (
       <div>
         <Card className="user-schools-card">
-          {/* <Droppable droppableId={this.props.category.id.toString()}> */}
-          {/* {(provided) => ( */}
           <Card.Body>
-            {/* <List innerRef={provided.innerRef} {...provided.droppableProps}> */}
             <List>
-              {this.props.list.map((x, index) => (
+              {this.props.list.map((x) => (
                 <div>
-                  {/* <Draggable */}
-                  {/* draggableId={x.school.id.toString()} */}
-                  {/* index={index} */}
-                  {/* > */}
-                  {/* {(provided) => ( */}
-                  <ListItem
-                    className="school-list-item"
-                    // {...provided.draggableProps}
-                    // {...provided.dragHandleProps}
-                    // innerRef={provided.innerRef}
-                  >
+                  <ListItem className="school-list-item">
                     <ListItemText>
                       <a href={"/schools/" + x.school.id}>{x.school.name}</a>
                       <Avatar style={style}>{x.school.state}</Avatar>
@@ -71,15 +56,10 @@ export default class UserSchoolList extends React.Component {
                       </IconButton>
                     </ListItemSecondaryAction>
                   </ListItem>
-                  {/* )} */}
-                  {/* </Draggable> */}
                 </div>
               ))}
-              {/* {provided.placeholder} */}
             </List>
           </Card.Body>
-          {/* )} */}
-          {/*  </Droppable> */}
         </Card>
       </div>
     );

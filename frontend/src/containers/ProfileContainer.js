@@ -70,6 +70,7 @@ export default class ProfileContainer extends React.Component {
               details={this.state.user}
               addCategory={this.addCategory}
               routeProps={this.props}
+              categories={this.state.categories}
             />
             <img src={Student} alt="student studying" height="450x450" />
           </div>
@@ -79,6 +80,7 @@ export default class ProfileContainer extends React.Component {
               details={this.state.user}
               addCategory={this.addCategory}
               routeProps={this.props}
+              categories={this.state.categories}
             />
 
             <UserCategoriesContainer

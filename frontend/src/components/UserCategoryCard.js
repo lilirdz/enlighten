@@ -5,7 +5,6 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditableLabel from "react-inline-editing";
 import UserSchoolList from "../components/UserSchoolList";
 import AddIcon from "@material-ui/icons/Add";
-// import {Droppable} from "react-beautiful-dnd"
 
 export default class UserCategoryCard extends React.Component {
   state = {
@@ -57,8 +56,6 @@ export default class UserCategoryCard extends React.Component {
 
     return (
       <div>
-        {/* <Droppable droppableId={this.props.category.id}> */}
-        {/* {(provided) => ( */}
         <Card className="user-category-card">
           <Card.Body>
             <Card.Title className="category-name-header">
@@ -93,8 +90,6 @@ export default class UserCategoryCard extends React.Component {
             </Button>
           </Card.Body>
         </Card>
-        {/* )} */}
-        {/* </Droppable> */}
       </div>
     );
   }

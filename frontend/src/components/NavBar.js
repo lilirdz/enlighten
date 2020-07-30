@@ -3,27 +3,33 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import Link from "react-router-dom/Link";
+import Logo from "../images/enlighten_logo.png";
+
+const style = {
+  color: "#454851",
+};
 
 class NavBar extends React.Component {
   render() {
     return (
       <Navbar className="navbar" expand="lg">
         <Navbar.Brand as={Link} to="/">
+          <img src={Logo} alt="logo" height="50" />
           Enlighten
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={Link} to="/schools">
+            <Nav.Link style={style} as={Link} to="/schools">
               Explore Schools
             </Nav.Link>
-            <Nav.Link as={Link} to="/compare-schools">
+            <Nav.Link style={style} as={Link} to="/compare-schools">
               Compare Schools
             </Nav.Link>
-            <Nav.Link as={Link} to="/resources">
+            <Nav.Link style={style} as={Link} to="/resources">
               Resources
             </Nav.Link>
-            <Nav.Link as={Link} to="/profile">
+            <Nav.Link style={style} as={Link} to="/profile">
               My Profile
             </Nav.Link>
           </Nav>
