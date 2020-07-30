@@ -1,20 +1,15 @@
 import React from "react";
 import Students from "../images/students.jpg";
 import CreateCategory from "../components/CreateCategory";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import BookGif from "../images/book.gif";
 import { Container, Row, Col } from "react-bootstrap";
-
-const style = {
-  color: "#9FA0FF",
-  marginTop: 300,
-};
 
 export default class UserInfo extends React.Component {
   render() {
     return (
       <div>
         {this.props.details === null ? (
-          <CircularProgress style={style} />
+          <img src={BookGif} alt="book-gif" />
         ) : (
           <div>
             <Container fluid="true">

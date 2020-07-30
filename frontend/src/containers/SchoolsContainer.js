@@ -1,13 +1,8 @@
 import React from "react";
 import SchoolList from "../components/SchoolList.js";
 import SearchContainer from "../containers/SearchContainer.js";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import BookGif from "../images/book.gif";
 import { Container } from "react-bootstrap";
-
-const style = {
-  color: "#9FA0FF",
-  marginTop: 300,
-};
 
 export default class SchoolsContainer extends React.Component {
   state = {
@@ -53,7 +48,7 @@ export default class SchoolsContainer extends React.Component {
         </h2>
         <SearchContainer handleSearch={this.handleSearch} />
         {this.state.loading ? (
-          <CircularProgress style={style} />
+          <img src={BookGif} alt="book-gif" />
         ) : (
           <Container>
             <SchoolList schools={searchSchools} routeProps={this.props} />

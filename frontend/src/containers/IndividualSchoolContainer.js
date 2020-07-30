@@ -41,7 +41,6 @@ export default class IndividualSchoolContainer extends React.Component {
     return (
       <div>
         {this.state.school === null ? (
-          // <CircularProgress style={style} />
           <img src={BookGif} alt="book-gif" style={{ marginTop: 150 }} />
         ) : (
           <div>
