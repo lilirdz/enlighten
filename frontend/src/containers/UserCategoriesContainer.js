@@ -12,9 +12,11 @@ export default class UserCategoriesContainer extends React.Component {
       <div>
         <Container fluid="true" className="categories-container">
           <Row className="categories-row">
-            {this.props.data.categories.map((category) => (
+            {this.props.data.categories.map((category, index) => (
               <Col md={4}>
                 <UserCategoryCard
+                  index={index}
+                  key={category.id}
                   category={category}
                   schools={this.props.data.schools}
                   removeSchool={this.props.removeSchool}

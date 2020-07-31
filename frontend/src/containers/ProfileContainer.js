@@ -48,9 +48,12 @@ export default class ProfileContainer extends React.Component {
   };
 
   addCategory = (newCategory) => {
-    this.setState({
-      categories: [...this.state.categories, newCategory],
-    });
+    this.setState(
+      {
+        categories: [...this.state.categories, newCategory],
+      },
+      () => console.log("hello", this.state.categories)
+    );
   };
 
   removeCategory = (categoryId) => {
@@ -62,6 +65,7 @@ export default class ProfileContainer extends React.Component {
   };
 
   render() {
+    console.log(this.state.categories);
     return (
       <div>
         {this.state.categories === null ? (

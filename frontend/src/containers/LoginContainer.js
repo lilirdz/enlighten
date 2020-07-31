@@ -3,9 +3,8 @@ import "../App.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Link from "react-router-dom/Link";
-import Graduates from "../images/graduates.jpg";
-// import SchoolAnimation from "../images/animation_640_kd7y1oz4.gif";
 import { Container, Row, Col } from "react-bootstrap";
+import LandingLottie from "../components/LandingLottie.js";
 
 export default class LoginContainer extends React.Component {
   state = {
@@ -55,12 +54,28 @@ export default class LoginContainer extends React.Component {
         <Container fluid="true">
           <Row>
             <Col md={6}>
-              <img src={Graduates} alt="college graduates" height="550" />
-
-              <h2 className="landing-pg-text">
-                First Generation College Bound Students <br />
-                Find the Right School For You
-              </h2>
+              <div
+                style={{
+                  height: "1000px",
+                  width: "1000px",
+                  position: "absolute",
+                  marginTop: "30px",
+                  transform: "translate(-12.5%,0)",
+                }}
+              >
+                <LandingLottie />
+              </div>
+              <div
+                style={{
+                  // transform: "translate(0,70%)",
+                  marginTop: "85%",
+                }}
+              >
+                <h2 className="landing-pg-text">
+                  First Generation College Bound Students <br />
+                  Find the Right School For You
+                </h2>
+              </div>
             </Col>
             <Col md={6}>
               <Form className="credentials-form">

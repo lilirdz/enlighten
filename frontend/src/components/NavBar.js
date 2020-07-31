@@ -14,7 +14,7 @@ class NavBar extends React.Component {
     return (
       <Navbar className="navbar" expand="lg">
         <Navbar.Brand as={Link} to="/">
-          <img src={Logo} alt="logo" height="50" />
+          <img src={Logo} alt="logo" height="40" />
           Enlighten
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

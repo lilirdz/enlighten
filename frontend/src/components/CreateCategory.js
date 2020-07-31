@@ -60,7 +60,7 @@ export default class CreateCategory extends React.Component {
             <Button variant="secondary" onClick={() => this.handleModal()}>
               Close
             </Button>
-            <Button onClick={this.createCategory} variant="primary">
+            <Button onClick={this.createCategory} className="add-school-btn">
               Create Category
             </Button>
           </Modal.Footer>

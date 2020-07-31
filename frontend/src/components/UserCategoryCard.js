@@ -20,7 +20,7 @@ export default class UserCategoryCard extends React.Component {
 
   deleteCategory = (e) => {
     const id = e.target.id;
-    console.log(id);
+    // console.log(id);
     fetch(`http://localhost:3000/api/v1/categories/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${localStorage.token}` },
@@ -53,7 +53,7 @@ export default class UserCategoryCard extends React.Component {
 
   render() {
     const { category } = this.props;
-
+    console.log(this.props.category);
     return (
       <div>
         <Card className="user-category-card">

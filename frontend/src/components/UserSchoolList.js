@@ -20,6 +20,7 @@ const style = {
 export default class UserSchoolList extends React.Component {
   deleteSchool = (e) => {
     const id = e.target.id;
+    console.log(id);
     fetch(`http://localhost:3000/api/v1/prospective_schools/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${localStorage.token}` },
